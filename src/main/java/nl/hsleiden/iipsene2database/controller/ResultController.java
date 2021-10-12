@@ -20,35 +20,30 @@ public class ResultController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Result> getAll(){
-        //return this.resultDAO.getAll();
-        return null;
+        return this.resultDAO.getAll();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Result> get(@PathVariable("id") int id){
-        //return this.resultDAO.get();
-        return null;
+    public Result get(@PathVariable("id") int id){
+        return this.resultDAO.get();
     }
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Result> post(){
-        //return this.resultDAO.post();
-        return null;
+    public void post(){
+        this.resultDAO.post();
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ArrayList<Result> put(@PathVariable("id") int id){
-        //return this.resultDAO.put();
-        return null;
+    public void put(@PathVariable("id") int id){
+        this.resultDAO.put();
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ArrayList<Result> delete(@PathVariable("id") int id){
-        //return this.resultDAO.delete();
-        return null;
+    public void delete(@PathVariable("id") int id){
+        this.resultDAO.delete();
     }
 }
