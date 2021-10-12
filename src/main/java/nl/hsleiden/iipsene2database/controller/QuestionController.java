@@ -3,6 +3,8 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.QuestionDAO;
 import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,55 +21,61 @@ public class QuestionController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getAll(){
-        return this.questionDAO.getAll();
+    public ResponseEntity<ArrayList<Question>> getAll(){
+        return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public Question get(@PathVariable("id") int id){
-        return this.questionDAO.get(id);
+    public ResponseEntity<Question> get(@PathVariable("id") int id){
+        return new ResponseEntity<>(this.questionDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?listId={listId}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getListById(@PathVariable("listId") int listId){
-        return this.questionDAO.getList(listId);
+    public ResponseEntity<ArrayList<Question>> getListById(@PathVariable("listId") int listId){
+        return new ResponseEntity<>(this.questionDAO.getList(listId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public void post(){
+    public ResponseEntity post(){
         this.questionDAO.post();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/post/?listId={listId}", method = RequestMethod.POST)
     @ResponseBody
-    public void postList(@PathVariable("listId") int listId){
+    public ResponseEntity postList(@PathVariable("listId") int listId){
         this.questionDAO.postList(listId);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") int id){
         this.questionDAO.put(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") int id){
         this.questionDAO.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/delete/?listId={listId}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void deleteList(@PathVariable("listId") int listId){
+    public ResponseEntity deleteList(@PathVariable("listId") int listId){
         this.questionDAO.deleteList(listId);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/patch/?listId={listId}", method = RequestMethod.PATCH)
     @ResponseBody
-    public void patchList(@PathVariable("listId") int listId){
+    public ResponseEntity patchList(@PathVariable("listId") int listId){
         this.questionDAO.patchList(listId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

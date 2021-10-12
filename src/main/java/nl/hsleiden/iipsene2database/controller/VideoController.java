@@ -3,6 +3,8 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.VideoDAO;
 import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,31 +21,34 @@ public class VideoController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Video> getAll(){
-        return this.videoDAO.getAll();
+    public ResponseEntity<ArrayList<Video>> getAll(){
+        return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public Video get(@PathVariable("id") int id){
-        return this.videoDAO.get(id);
+    public ResponseEntity<Video> get(@PathVariable("id") int id){
+        return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public void post(){
+    public ResponseEntity post(){
         this.videoDAO.post();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") int id){
         this.videoDAO.put(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") int id){
         this.videoDAO.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

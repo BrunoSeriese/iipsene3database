@@ -3,6 +3,8 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.ResultDAO;
 import nl.hsleiden.iipsene2database.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -19,31 +21,34 @@ public class ResultController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Result> getAll(){
-        return this.resultDAO.getAll();
+    public ResponseEntity<ArrayList<Result>> getAll(){
+        return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public Result get(@PathVariable("id") int id){
-        return this.resultDAO.get(id);
+    public ResponseEntity<Result> get(@PathVariable("id") int id){
+        return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
-    public void post(){
+    public ResponseEntity post(){
         this.resultDAO.post();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") int id){
         this.resultDAO.put(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") int id){
         this.resultDAO.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

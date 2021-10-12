@@ -5,6 +5,8 @@ import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
 import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -21,49 +23,53 @@ public class AnswerController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Answer> getAll(){
-        return this.answerDAO.getAll();
+    public ResponseEntity<ArrayList<Answer>> getAll(){
+        return new ResponseEntity<>(this.answerDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public Answer get(@PathVariable("id") int id){
-        return this.answerDAO.get(id);
+    public ResponseEntity<Answer> get(@PathVariable("id") int id){
+        return new ResponseEntity<>(this.answerDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?questionId={questionId}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Answer> getByQuestion(@PathVariable("questionId") int questionId){
-        return this.answerDAO.getByQuestionId(questionId);
+    public ResponseEntity<ArrayList<Answer>> getByQuestion(@PathVariable("questionId") int questionId){
+        return new ResponseEntity<>(this.answerDAO.getByQuestionId(questionId), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}/nextContent", method = RequestMethod.GET)
     @ResponseBody
-    public Content getNextContentById(@PathVariable("id") int id){
-        return this.answerDAO.getNextContentById(id);
+    public ResponseEntity<Content> getNextContentById(@PathVariable("id") int id){
+        return new ResponseEntity<>(this.answerDAO.getNextContentById(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public void post(@PathVariable("id") int id){
+    public ResponseEntity post(@PathVariable("id") int id){
         this.answerDAO.post();
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public void put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") int id){
         this.answerDAO.put(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public void delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") int id){
         this.answerDAO.delete(id);
+        return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @RequestMapping(value = "/patch/?questionId={questionId}", method = RequestMethod.PATCH)
     @ResponseBody
-    public void patchList(@PathVariable("questionId") int questionId){
+    public ResponseEntity patchList(@PathVariable("questionId") int questionId){
         this.answerDAO.patchList(questionId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
