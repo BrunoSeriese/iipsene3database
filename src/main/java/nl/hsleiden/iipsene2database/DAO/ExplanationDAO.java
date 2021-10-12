@@ -18,4 +18,17 @@ public class ExplanationDAO implements DAO<Explanation> {
     public ArrayList<Explanation> getAll() {
         return null;
     }
+
+    public Explanation get() {
+        return null;
+    }
+
+    public void post() {
+    }
+
+    public void put() {
+    }
+
+    public void delete() {
+    }
 }
