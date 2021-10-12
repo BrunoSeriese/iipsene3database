@@ -19,62 +19,62 @@ public class QuestionController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getQuestions(){
+    public ArrayList<Question> getAll(){
         return this.questionDAO.getAll();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getQuestionById(@PathVariable("id") int id){
-        //return this.questionDAO.getAll();
+    public ArrayList<Question> get(@PathVariable("id") int id){
+        //return this.questionDAO.get();
         return null;
     }
 
     @RequestMapping(value = "/?listId={listId}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getQuestionListById(@PathVariable("listId") int listId){
-        //return this.questionDAO.get();
+    public ArrayList<Question> getListById(@PathVariable("listId") int listId){
+        //return this.questionDAO.getList();
         return null;
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Question> postQuestion(){
+    public ArrayList<Question> post(){
         //return this.questionDAO.post();
         return null;
     }
 
     @RequestMapping(value = "/post/?listId={listId}", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Question> postQuestionList(@PathVariable("listId") int listId){
+    public ArrayList<Question> postList(@PathVariable("listId") int listId){
         //return this.questionDAO.postList();
         return null;
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ArrayList<Question> putQuestion(@PathVariable("id") int id){
+    public ArrayList<Question> put(@PathVariable("id") int id){
         //return this.questionDAO.put();
         return null;
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ArrayList<Question> deleteQuestion(@PathVariable("id") int id){
+    public ArrayList<Question> delete(@PathVariable("id") int id){
         //return this.questionDAO.delete();
         return null;
     }
 
     @RequestMapping(value = "/delete/?listId={listId}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ArrayList<Question> deleteQuestionList(@PathVariable("listId") int listId){
+    public ArrayList<Question> deleteList(@PathVariable("listId") int listId){
         //return this.questionDAO.deleteList();
         return null;
     }
 
     @RequestMapping(value = "/patch/?listId={listId}", method = RequestMethod.PATCH)
     @ResponseBody
-    public ArrayList<Question> patchQuestionList(@PathVariable("listId") int listId){
+    public ArrayList<Question> patchList(@PathVariable("listId") int listId){
         //return this.questionDAO.patchList();
         return null;
     }
