@@ -20,35 +20,30 @@ public class ExplanationController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Explanation> getAll(){
-        //return this.explanationDAO.getAll();
-        return null;
+        return this.explanationDAO.getAll();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Explanation> get(@PathVariable("id") int id){
-        //return this.explanationDAO.get();
-        return null;
+    public Explanation get(@PathVariable("id") int id){
+        return this.explanationDAO.get();
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Explanation> post(){
-        //return this.explanationDAO.post();
-        return null;
+    public void post(){
+        this.explanationDAO.post();
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ArrayList<Explanation> put(@PathVariable("id") int id){
-        //return this.explanationDAO.put();
-        return null;
+    public void put(@PathVariable("id") int id){
+        this.explanationDAO.put();
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ArrayList<Explanation> delete(@PathVariable("id") int id){
-        //return this.explanationDAO.delete();
-        return null;
+    public void delete(@PathVariable("id") int id){
+        this.explanationDAO.delete();
     }
 }
