@@ -18,4 +18,17 @@ public class ResultDAO implements DAO<Result> {
     public ArrayList<Result> getAll() {
         return null;
     }
+
+    public Result get() {
+        return null;
+    }
+
+    public void post() {
+    }
+
+    public void put() {
+    }
+
+    public void delete() {
+    }
 }
