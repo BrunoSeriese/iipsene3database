@@ -19,16 +19,20 @@ public class ExplanationDAO implements DAO<Explanation> {
         return null;
     }
 
+    @Override
     public Explanation get(int id) {
         return null;
     }
 
+    @Override
     public void post() {
     }
 
+    @Override
     public void put(int id) {
     }
 
+    @Override
     public void delete(int id) {
     }
 }

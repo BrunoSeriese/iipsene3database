@@ -19,16 +19,20 @@ public class ResultDAO implements DAO<Result> {
         return null;
     }
 
+    @Override
     public Result get(int id) {
         return null;
     }
 
+    @Override
     public void post() {
     }
 
+    @Override
     public void put(int id) {
     }
 
+    @Override
     public void delete(int id) {
     }
 }

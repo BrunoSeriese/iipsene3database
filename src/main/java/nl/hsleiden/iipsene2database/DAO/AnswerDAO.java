@@ -21,6 +21,7 @@ public class AnswerDAO implements DAO<Answer> {
         return null;
     }
 
+    @Override
     public Answer get(int id) {
         return null;
     }
@@ -33,12 +34,15 @@ public class AnswerDAO implements DAO<Answer> {
         return null;
     }
 
+    @Override
     public void post() {
     }
 
+    @Override
     public void put(int id) {
     }
 
+    @Override
     public void delete(int id) {
     }
 
