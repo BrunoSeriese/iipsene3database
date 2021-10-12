@@ -31,6 +31,13 @@ public class ExplanationController {
         return null;
     }
 
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @ResponseBody
+    public ArrayList<Explanation> post(){
+        //return this.explanationDAO.post();
+        return null;
+    }
+
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ArrayList<Explanation> put(@PathVariable("id") int id){
