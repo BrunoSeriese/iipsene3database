@@ -34,7 +34,7 @@ public class AnswerController {
 
     @RequestMapping(value = "/?questionId={questionId}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getByQuestion(@PathVariable("questionId") int id){
+    public ArrayList<Question> getByQuestion(@PathVariable("questionId") int questionId){
         //return this.questionDAO.getByQuestionId();
         return null;
     }
@@ -69,7 +69,7 @@ public class AnswerController {
 
     @RequestMapping(value = "/patch/?questionId={questionId}", method = RequestMethod.PATCH)
     @ResponseBody
-    public ArrayList<Question> patchList(@PathVariable("questionId") int id){
+    public ArrayList<Question> patchList(@PathVariable("questionId") int questionId){
         //return this.questionDAO.patchList();
         return null;
     }
