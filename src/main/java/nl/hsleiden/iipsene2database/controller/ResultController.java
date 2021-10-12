@@ -24,10 +24,17 @@ public class ResultController {
         return null;
     }
 
-    @RequestMapping(value = "?id={id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Result> get(@PathVariable("id") int id){
         //return this.resultDAO.get();
+        return null;
+    }
+
+    @RequestMapping(value = "post", method = RequestMethod.POST)
+    @ResponseBody
+    public ArrayList<Result> post(){
+        //return this.resultDAO.post();
         return null;
     }
 
