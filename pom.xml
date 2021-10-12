@@ -11,8 +11,8 @@
     <groupId>nl.hsleiden</groupId>
     <artifactId>iipsene2database</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>Demo project for Spring Boot</description>
+    <name>iipsene2database</name>
+    <description>API for iipsene2application</description>
     <properties>
         <java.version>11</java.version>
     </properties>
