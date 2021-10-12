@@ -69,8 +69,8 @@ public class AnswerController {
 
     @RequestMapping(value = "/patch/?questionId={questionId}", method = RequestMethod.PATCH)
     @ResponseBody
-    public ArrayList<Question> patch(@PathVariable("questionId") int id){
-        //return this.questionDAO.patch();
+    public ArrayList<Question> patchList(@PathVariable("questionId") int id){
+        //return this.questionDAO.patchList();
         return null;
     }
 }
