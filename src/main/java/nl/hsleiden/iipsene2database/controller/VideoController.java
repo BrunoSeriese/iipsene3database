@@ -20,35 +20,30 @@ public class VideoController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Video> getAll(){
-        //return this.videoDAO.getAll();
-        return null;
+        return this.videoDAO.getAll();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Video> get(@PathVariable("id") int id){
-        //return this.videoDAO.get();
-        return null;
+    public Video get(@PathVariable("id") int id){
+        return this.videoDAO.get();
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Video> post(){
-        //return this.videoDAO.post();
-        return null;
+    public void post(){
+        this.videoDAO.post();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ArrayList<Video> put(@PathVariable("id") int id){
-        //return this.videoDAO.put();
-        return null;
+    public void put(@PathVariable("id") int id){
+        this.videoDAO.put();
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ArrayList<Video> delete(@PathVariable("id") int id){
-        //return this.videoDAO.delete();
-        return null;
+    public void delete(@PathVariable("id") int id){
+        this.videoDAO.delete();
     }
 }
