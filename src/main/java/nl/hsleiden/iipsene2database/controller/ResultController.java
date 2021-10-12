@@ -3,10 +3,7 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.ResultDAO;
 import nl.hsleiden.iipsene2database.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,29 @@ public class ResultController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Result> results(){
-        return this.resultDAO.getAll();
+    public ArrayList<Result> getAll(){
+        //return this.resultDAO.getAll();
+        return null;
+    }
+
+    @RequestMapping(value = "?id={id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList<Result> get(@PathVariable("id") int id){
+        //return this.resultDAO.get();
+        return null;
+    }
+
+    @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ArrayList<Result> put(@PathVariable("id") int id){
+        //return this.resultDAO.put();
+        return null;
+    }
+
+    @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ArrayList<Result> delete(@PathVariable("id") int id){
+        //return this.resultDAO.delete();
+        return null;
     }
 }
