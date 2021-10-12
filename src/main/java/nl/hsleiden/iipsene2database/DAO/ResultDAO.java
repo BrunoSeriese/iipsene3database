@@ -19,16 +19,16 @@ public class ResultDAO implements DAO<Result> {
         return null;
     }
 
-    public Result get() {
+    public Result get(int id) {
         return null;
     }
 
     public void post() {
     }
 
-    public void put() {
+    public void put(int id) {
     }
 
-    public void delete() {
+    public void delete(int id) {
     }
 }

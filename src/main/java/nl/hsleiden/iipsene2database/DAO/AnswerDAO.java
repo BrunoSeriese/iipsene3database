@@ -21,27 +21,27 @@ public class AnswerDAO implements DAO<Answer> {
         return null;
     }
 
-    public Answer get() {
+    public Answer get(int id) {
         return null;
     }
 
-    public ArrayList<Answer> getByQuestionId() {
+    public ArrayList<Answer> getByQuestionId(int questionId) {
         return null;
     }
 
-    public Content getNextContentById() {
+    public Content getNextContentById(int id) {
         return null;
     }
 
     public void post() {
     }
 
-    public void put() {
+    public void put(int id) {
     }
 
-    public void delete() {
+    public void delete(int id) {
     }
 
-    public void patchList() {
+    public void patchList(int questionId) {
     }
 }

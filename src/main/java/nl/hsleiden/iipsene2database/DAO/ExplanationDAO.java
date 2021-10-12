@@ -19,16 +19,16 @@ public class ExplanationDAO implements DAO<Explanation> {
         return null;
     }
 
-    public Explanation get() {
+    public Explanation get(int id) {
         return null;
     }
 
     public void post() {
     }
 
-    public void put() {
+    public void put(int id) {
     }
 
-    public void delete() {
+    public void delete(int id) {
     }
 }

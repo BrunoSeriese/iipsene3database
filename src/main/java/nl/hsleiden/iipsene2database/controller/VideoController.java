@@ -26,7 +26,7 @@ public class VideoController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public Video get(@PathVariable("id") int id){
-        return this.videoDAO.get();
+        return this.videoDAO.get(id);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -38,12 +38,12 @@ public class VideoController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public void put(@PathVariable("id") int id){
-        this.videoDAO.put();
+        this.videoDAO.put(id);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable("id") int id){
-        this.videoDAO.delete();
+        this.videoDAO.delete(id);
     }
 }

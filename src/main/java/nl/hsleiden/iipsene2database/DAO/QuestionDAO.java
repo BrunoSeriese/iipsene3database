@@ -19,29 +19,29 @@ public class QuestionDAO implements DAO<Question> {
         return null;
     }
 
-    public Question get() {
+    public Question get(int id) {
         return null;
     }
 
-    public ArrayList<Question> getList() {
+    public ArrayList<Question> getList(int listId) {
         return null;
     }
 
     public void post() {
     }
 
-    public void postList() {
+    public void postList(int listId) {
     }
 
-    public void put() {
+    public void put(int id) {
     }
 
-    public void delete() {
+    public void delete(int id) {
     }
 
-    public void deleteList() {
+    public void deleteList(int listId) {
     }
 
-    public void patchList() {
+    public void patchList(int listId) {
     }
 }

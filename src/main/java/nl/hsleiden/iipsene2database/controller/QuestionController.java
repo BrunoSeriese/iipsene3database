@@ -26,13 +26,13 @@ public class QuestionController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public Question get(@PathVariable("id") int id){
-        return this.questionDAO.get();
+        return this.questionDAO.get(id);
     }
 
     @RequestMapping(value = "/?listId={listId}", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Question> getListById(@PathVariable("listId") int listId){
-        return this.questionDAO.getList();
+        return this.questionDAO.getList(listId);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -44,30 +44,30 @@ public class QuestionController {
     @RequestMapping(value = "/post/?listId={listId}", method = RequestMethod.POST)
     @ResponseBody
     public void postList(@PathVariable("listId") int listId){
-        this.questionDAO.postList();
+        this.questionDAO.postList(listId);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public void put(@PathVariable("id") int id){
-        this.questionDAO.put();
+        this.questionDAO.put(id);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable("id") int id){
-        this.questionDAO.delete();
+        this.questionDAO.delete(id);
     }
 
     @RequestMapping(value = "/delete/?listId={listId}", method = RequestMethod.DELETE)
     @ResponseBody
     public void deleteList(@PathVariable("listId") int listId){
-        this.questionDAO.deleteList();
+        this.questionDAO.deleteList(listId);
     }
 
     @RequestMapping(value = "/patch/?listId={listId}", method = RequestMethod.PATCH)
     @ResponseBody
     public void patchList(@PathVariable("listId") int listId){
-        this.questionDAO.patchList();
+        this.questionDAO.patchList(listId);
     }
 }

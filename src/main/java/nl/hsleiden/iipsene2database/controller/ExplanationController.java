@@ -26,7 +26,7 @@ public class ExplanationController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public Explanation get(@PathVariable("id") int id){
-        return this.explanationDAO.get();
+        return this.explanationDAO.get(id);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -38,12 +38,12 @@ public class ExplanationController {
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public void put(@PathVariable("id") int id){
-        this.explanationDAO.put();
+        this.explanationDAO.put(id);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable("id") int id){
-        this.explanationDAO.delete();
+        this.explanationDAO.delete(id);
     }
 }

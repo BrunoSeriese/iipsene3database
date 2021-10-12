@@ -28,19 +28,19 @@ public class AnswerController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public Answer get(@PathVariable("id") int id){
-        return this.answerDAO.get();
+        return this.answerDAO.get(id);
     }
 
     @RequestMapping(value = "/?questionId={questionId}", method = RequestMethod.GET)
     @ResponseBody
     public ArrayList<Answer> getByQuestion(@PathVariable("questionId") int questionId){
-        return this.answerDAO.getByQuestionId();
+        return this.answerDAO.getByQuestionId(questionId);
     }
 
     @RequestMapping(value = "/?id={id}/nextContent", method = RequestMethod.GET)
     @ResponseBody
     public Content getNextContentById(@PathVariable("id") int id){
-        return this.answerDAO.getNextContentById();
+        return this.answerDAO.getNextContentById(id);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -52,18 +52,18 @@ public class AnswerController {
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public void put(@PathVariable("id") int id){
-        this.answerDAO.put();
+        this.answerDAO.put(id);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable("id") int id){
-        this.answerDAO.delete();
+        this.answerDAO.delete(id);
     }
 
     @RequestMapping(value = "/patch/?questionId={questionId}", method = RequestMethod.PATCH)
     @ResponseBody
     public void patchList(@PathVariable("questionId") int questionId){
-        this.answerDAO.patchList();
+        this.answerDAO.patchList(questionId);
     }
 }

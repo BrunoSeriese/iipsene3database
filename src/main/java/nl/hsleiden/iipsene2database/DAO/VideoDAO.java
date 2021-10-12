@@ -19,16 +19,16 @@ public class VideoDAO implements DAO<Video> {
         return null;
     }
 
-    public Video get() {
+    public Video get(int id) {
         return null;
     }
 
     public void post() {
     }
 
-    public void put() {
+    public void put(int id) {
     }
 
-    public void delete() {
+    public void delete(int id) {
     }
 }

@@ -26,7 +26,7 @@ public class ResultController {
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
     public Result get(@PathVariable("id") int id){
-        return this.resultDAO.get();
+        return this.resultDAO.get(id);
     }
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
@@ -38,12 +38,12 @@ public class ResultController {
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public void put(@PathVariable("id") int id){
-        this.resultDAO.put();
+        this.resultDAO.put(id);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
     public void delete(@PathVariable("id") int id){
-        this.resultDAO.delete();
+        this.resultDAO.delete(id);
     }
 }
