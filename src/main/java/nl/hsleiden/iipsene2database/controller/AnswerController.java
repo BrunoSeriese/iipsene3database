@@ -27,14 +27,14 @@ public class AnswerController {
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getAnswer(@PathVariable("id") int id){
+    public ArrayList<Question> get(@PathVariable("id") int id){
         //return this.questionDAO.get();
         return null;
     }
 
     @RequestMapping(value = "/?questionId={questionId}", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Question> getAnswersByQuestion(@PathVariable("questionId") int id){
+    public ArrayList<Question> getByQuestion(@PathVariable("questionId") int id){
         //return this.questionDAO.getByQuestionId();
         return null;
     }
@@ -48,14 +48,14 @@ public class AnswerController {
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
-    public ArrayList<Question> postAnswer(@PathVariable("id") int id){
+    public ArrayList<Question> post(@PathVariable("id") int id){
         //return this.questionDAO.post();
         return null;
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ArrayList<Question> putAnswer(@PathVariable("id") int id){
+    public ArrayList<Question> put(@PathVariable("id") int id){
         //return this.questionDAO.put();
         return null;
     }
