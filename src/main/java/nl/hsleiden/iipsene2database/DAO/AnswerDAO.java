@@ -2,6 +2,8 @@ package nl.hsleiden.iipsene2database.DAO;
 
 import nl.hsleiden.iipsene2database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
+import nl.hsleiden.iipsene2database.model.Content;
+import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -17,5 +19,29 @@ public class AnswerDAO implements DAO<Answer> {
     @Override
     public ArrayList<Answer> getAll() {
         return null;
+    }
+
+    public Answer get() {
+        return null;
+    }
+
+    public ArrayList<Answer> getByQuestionId() {
+        return null;
+    }
+
+    public Content getNextContentById() {
+        return null;
+    }
+
+    public void post() {
+    }
+
+    public void put() {
+    }
+
+    public void delete() {
+    }
+
+    public void patchList() {
     }
 }
