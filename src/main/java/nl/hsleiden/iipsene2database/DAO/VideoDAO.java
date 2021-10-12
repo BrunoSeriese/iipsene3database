@@ -18,4 +18,17 @@ public class VideoDAO implements DAO<Video> {
     public ArrayList<Video> getAll() {
         return null;
     }
+
+    public Video get() {
+        return null;
+    }
+
+    public void post() {
+    }
+
+    public void put() {
+    }
+
+    public void delete() {
+    }
 }
