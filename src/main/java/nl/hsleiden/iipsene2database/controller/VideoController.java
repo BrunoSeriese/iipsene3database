@@ -3,10 +3,7 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.VideoDAO;
 import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -22,7 +19,36 @@ public class VideoController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Video> videos(){
-        return this.videoDAO.getAll();
+    public ArrayList<Video> getAll(){
+        //return this.videoDAO.getAll();
+        return null;
+    }
+
+    @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
+    @ResponseBody
+    public ArrayList<Video> get(@PathVariable("id") int id){
+        //return this.videoDAO.get();
+        return null;
+    }
+
+    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @ResponseBody
+    public ArrayList<Video> post(){
+        //return this.videoDAO.post();
+        return null;
+    }
+
+    @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
+    @ResponseBody
+    public ArrayList<Video> put(@PathVariable("id") int id){
+        //return this.videoDAO.put();
+        return null;
+    }
+
+    @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public ArrayList<Video> delete(@PathVariable("id") int id){
+        //return this.videoDAO.delete();
+        return null;
     }
 }
