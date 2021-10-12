@@ -20,7 +20,7 @@ public class AnswerController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Answer> getAnswers(){
+    public ArrayList<Answer> getAll(){
         //return this.answerDAO.getAll();
         return null;
     }
