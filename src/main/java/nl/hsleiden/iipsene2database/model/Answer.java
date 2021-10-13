@@ -2,8 +2,10 @@ package nl.hsleiden.iipsene2database.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-//@Entity
+@Entity
+@Table(name = "answer")
 public class Answer  {
     @Id
     private final int id;

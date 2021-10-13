@@ -2,12 +2,14 @@ package nl.hsleiden.iipsene2database.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
-//@Entity
+@Entity
 public class Result implements Content {
     @Id
     private final int id;
     private final String value;
+    @Transient
     private final Answer answer;
 
     public Result(int id,
