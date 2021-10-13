@@ -3,14 +3,14 @@ package nl.hsleiden.iipsene2database.model;
 public class Question implements Content {
     private final int id;
     private final String value;
-    private final Answer answer;
+    private final Answer[] answers;
 
     public Question(int id,
                        String value,
-                       Answer answer) {
+                       Answer[] answers) {
         this.id = id;
         this.value = value;
-        this.answer = answer;
+        this.answers = answers;
     }
 
     @Override
@@ -23,8 +23,7 @@ public class Question implements Content {
         return value;
     }
 
-    @Override
-    public Answer getAnswer() {
-        return answer;
+    public Answer[] getAnswers() {
+        return answers;
     }
 }

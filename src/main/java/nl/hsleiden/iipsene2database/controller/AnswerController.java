@@ -3,7 +3,6 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.AnswerDAO;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
-import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

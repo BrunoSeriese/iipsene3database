@@ -23,7 +23,6 @@ public class Video implements Content {
         return value;
     }
 
-    @Override
     public Answer getAnswer() {
         return answer;
     }
