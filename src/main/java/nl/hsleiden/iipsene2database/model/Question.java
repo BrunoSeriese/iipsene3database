@@ -3,7 +3,7 @@ package nl.hsleiden.iipsene2database.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public class Question implements Content {
     @Id
     private final int id;
