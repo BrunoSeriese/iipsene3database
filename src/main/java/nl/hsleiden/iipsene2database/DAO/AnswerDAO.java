@@ -1,19 +1,15 @@
 package nl.hsleiden.iipsene2database.DAO;
 
-import nl.hsleiden.iipsene2database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
-import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
-    private final AnswerRepository answerRepository;
 
-    public AnswerDAO(AnswerRepository answerRepository) {
-        this.answerRepository = answerRepository;
+    public AnswerDAO() {
     }
 
     @Override
