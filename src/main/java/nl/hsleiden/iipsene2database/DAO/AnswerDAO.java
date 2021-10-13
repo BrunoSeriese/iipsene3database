@@ -1,7 +1,9 @@
 package nl.hsleiden.iipsene2database.DAO;
 
+import nl.hsleiden.iipsene2database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
+import org.springframework.objenesis.instantiator.android.AndroidSerializationInstantiator;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -9,12 +11,16 @@ import java.util.ArrayList;
 @Component
 public class AnswerDAO implements DAO<Answer> {
 
-    public AnswerDAO() {
+    private AnswerRepository answerRepository;
+
+    public AnswerDAO(AnswerRepository answerRepository) {
+        this.answerRepository = answerRepository;
     }
 
     @Override
     public ArrayList<Answer> getAll() {
-        return null;
+        ArrayList<Answer> answers = (ArrayList<Answer>) this.answerRepository.findAll();
+        return answers;
     }
 
     @Override
@@ -44,4 +50,5 @@ public class AnswerDAO implements DAO<Answer> {
 
     public void patchList(int questionId) {
     }
+
 }

@@ -1,41 +1,52 @@
 package nl.hsleiden.iipsene2database.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "answer")
 public class Answer  {
-    @Id
-    private final int id;
-    private final String value;
-    private final int currentContentId;
-    private final int nextContentId;
 
-    public Answer(int id,
+
+
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String value;
+    private int currentContentId;
+    private int nextContentId;
+
+
+    public Answer(){
+
+    }
+
+    public Answer(
                   String value,
                   int currentContentId,
                   int nextContentId) {
-        this.id = id;
         this.value = value;
         this.currentContentId = currentContentId;
         this.nextContentId = nextContentId;
     }
 
-    public int getId() {
-        return id;
+
+    public Long getId() {
+        return this.id;
     }
 
     public String getValue() {
-        return value;
+        return this.value;
     }
 
     public int getCurrentContentId() {
-        return currentContentId;
+        return this.currentContentId;
     }
 
     public int getNextContentId() {
-        return nextContentId;
+        return this.nextContentId;
     }
 }
