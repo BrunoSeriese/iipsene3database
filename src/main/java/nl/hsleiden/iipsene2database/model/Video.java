@@ -1,6 +1,11 @@
 package nl.hsleiden.iipsene2database.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Video implements Content {
+    @Id
     private final int id;
     private final String value;
     private final Answer answer;

@@ -1,6 +1,11 @@
 package nl.hsleiden.iipsene2database.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Answer  {
+    @Id
     private final int id;
     private final String value;
     private final int currentContentId;
