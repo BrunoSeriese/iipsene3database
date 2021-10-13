@@ -26,14 +26,14 @@ public class QuestionDAO implements DAO<Question> {
     }
 
     @Override
-    public void post() {
+    public void create() {
     }
 
     public void postList(int listId) {
     }
 
     @Override
-    public void put(int id) {
+    public void update(int id) {
     }
 
     @Override

@@ -47,14 +47,14 @@ public class AnswerController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity post(@PathVariable("id") int id){
-        this.answerDAO.post();
+        this.answerDAO.create();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") int id){
-        this.answerDAO.put(id);
+        this.answerDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

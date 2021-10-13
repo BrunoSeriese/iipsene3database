@@ -34,14 +34,14 @@ public class ExplanationController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity post(){
-        this.explanationDAO.post();
+        this.explanationDAO.create();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") int id){
-        this.explanationDAO.put(id);
+        this.explanationDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -34,14 +34,14 @@ public class VideoController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity post(){
-        this.videoDAO.post();
+        this.videoDAO.create();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") int id){
-        this.videoDAO.put(id);
+        this.videoDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

@@ -34,14 +34,14 @@ public class ResultController {
     @RequestMapping(value = "post", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity post(){
-        this.resultDAO.post();
+        this.resultDAO.create();
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") int id){
-        this.resultDAO.put(id);
+        this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

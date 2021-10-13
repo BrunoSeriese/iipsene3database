@@ -40,7 +40,7 @@ public class QuestionController {
     @RequestMapping(value = "/post", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity post(){
-        this.questionDAO.post();
+        this.questionDAO.create();
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -54,7 +54,7 @@ public class QuestionController {
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") int id){
-        this.questionDAO.put(id);
+        this.questionDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

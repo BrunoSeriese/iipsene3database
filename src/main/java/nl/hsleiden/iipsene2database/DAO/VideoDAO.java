@@ -22,11 +22,11 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public void post() {
+    public void create() {
     }
 
     @Override
-    public void put(int id) {
+    public void update(int id) {
     }
 
     @Override
