@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.swing.text.html.Option;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -23,13 +24,13 @@ public class ExplanationController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ArrayList<Explanation>> getAll(){
+    public ResponseEntity<List<Explanation>> getAll(){
         return new ResponseEntity<>(this.explanationDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<Explanation> get(@PathVariable("id") Long id){
+    public Explanation get(@PathVariable("id") Long id){
         return this.explanationDAO.get(id);
     }
 

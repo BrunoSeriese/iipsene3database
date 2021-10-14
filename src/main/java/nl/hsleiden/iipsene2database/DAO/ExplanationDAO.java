@@ -1,25 +1,34 @@
 package nl.hsleiden.iipsene2database.DAO;
 
+import nl.hsleiden.iipsene2database.DAO.Repository.ExplanationRepository;
 import nl.hsleiden.iipsene2database.model.Explanation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
 public class ExplanationDAO implements DAO<Explanation> {
+    private final ExplanationRepository explanationRepository;
 
-    public ExplanationDAO() {
+    @Autowired
+    public ExplanationDAO(ExplanationRepository explanationRepository) {
+        this.explanationRepository = explanationRepository;
     }
 
     @Override
-    public ArrayList<Explanation> getAll() {
-        return null;
+    public List<Explanation> getAll() {
+        List<Explanation> explanations = this.explanationRepository.findAll();
+        explanations.removeIf(e -> !Objects.equals(e.getType(), "EXPLANATION"));
+        return explanations;
     }
 
     @Override
-    public Optional<Explanation> get(Long id) {
-        return null;
+    public Explanation get(Long id) {
+        return this.explanationRepository.getById(id);
     }
 
     @Override

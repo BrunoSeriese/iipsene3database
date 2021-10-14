@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,13 +23,13 @@ public class VideoController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ArrayList<Video>> getAll(){
+    public ResponseEntity<List<Video>> getAll(){
         return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<Video> get(@PathVariable("id") Long id){
+    public Video get(@PathVariable("id") Long id){
         return this.videoDAO.get(id);
     }
 

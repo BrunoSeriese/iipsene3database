@@ -1,25 +1,34 @@
 package nl.hsleiden.iipsene2database.DAO;
 
+import nl.hsleiden.iipsene2database.DAO.Repository.VideoRepository;
 import nl.hsleiden.iipsene2database.model.Video;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
 public class VideoDAO implements DAO<Video> {
+    private final VideoRepository videoRepository;
 
-    public VideoDAO() {
+    @Autowired
+    public VideoDAO(VideoRepository videoRepository) {
+        this.videoRepository = videoRepository;
     }
 
     @Override
-    public ArrayList<Video> getAll() {
-        return null;
+    public List<Video> getAll() {
+        List<Video> videos = this.videoRepository.findAll();
+        videos.removeIf(v -> !Objects.equals(v.getType(), "VIDEO"));
+        return videos;
     }
 
     @Override
-    public Optional<Video> get(Long id) {
-        return null;
+    public Video get(Long id) {
+        return this.videoRepository.getById(id);
     }
 
     @Override

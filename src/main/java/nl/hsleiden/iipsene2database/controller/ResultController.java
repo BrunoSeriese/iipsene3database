@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,14 +23,14 @@ public class ResultController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ArrayList<Result>> getAll(){
+    public ResponseEntity<List<Result>> getAll(){
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<Result> get(@PathVariable("id") Long id){
-        return this.resultDAO.get(id);
+    public ResponseEntity<Result> get(@PathVariable("id") Long id){
+        return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "post", method = RequestMethod.POST)

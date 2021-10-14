@@ -23,13 +23,13 @@ public class QuestionController {
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ArrayList<Question>> getAll(){
+    public ResponseEntity<List<Question>> getAll(){
         return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Optional<Question> get(@PathVariable("id") Long id){
+    public Question get(@PathVariable("id") Long id){
         return this.questionDAO.get(id);
     }
 

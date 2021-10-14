@@ -1,28 +1,37 @@
 package nl.hsleiden.iipsene2database.DAO;
 
+import nl.hsleiden.iipsene2database.DAO.Repository.QuestionRepository;
 import nl.hsleiden.iipsene2database.model.Question;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Component
 public class QuestionDAO implements DAO<Question> {
+    private final QuestionRepository questionRepository;
 
-    public QuestionDAO() {
+    @Autowired
+    public QuestionDAO(QuestionRepository questionRepository) {
+        this.questionRepository = questionRepository;
     }
 
     @Override
-    public ArrayList<Question> getAll() {
-        return null;
+    public List<Question> getAll() {
+        List<Question> questions = this.questionRepository.findAll();
+        questions.removeIf(q -> !Objects.equals(q.getType(), "QUESTION"));
+        return questions;
     }
 
     @Override
-    public Optional<Question> get(Long id) {
-        return null;
+    public Question get(Long id) {
+        return this.questionRepository.getById(id);
     }
 
-    public ArrayList<Question> getList(Long listId) {
+    public List<Question> getList(Long listId) {
         return null;
     }
 

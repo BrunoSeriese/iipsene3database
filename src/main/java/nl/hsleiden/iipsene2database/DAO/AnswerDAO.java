@@ -6,32 +6,30 @@ import nl.hsleiden.iipsene2database.model.Content;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Optional;
+import java.util.List;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
-
-    private AnswerRepository answerRepository;
+    private final AnswerRepository answerRepository;
 
     public AnswerDAO(AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;
     }
 
     @Override
-    public ArrayList<Answer> getAll() {
-
-        ArrayList<Answer> answers = (ArrayList<Answer>) this.answerRepository.findAll();
-        return answers;
+    public List<Answer> getAll() {
+        return this.answerRepository.findAll();
     }
 
     @Override
-    public Optional<Answer> get(Long id) {
-
-        return this.answerRepository.findById(id);
+    public Answer get(Long id) {
+        return this.answerRepository.getById(id);
     }
 
-    public ArrayList<Answer> getByQuestionId(Long questionId) {
-        return null;
+    public List<Answer> getByCurrentContentId(Long currentContentId) {
+        List<Answer> answers = this.answerRepository.findAll();
+        answers.removeIf(a -> a.getCurrentContentId() != currentContentId);
+        return answers;
     }
 
     public Content getNextContentById(Long id) {
