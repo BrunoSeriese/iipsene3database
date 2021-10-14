@@ -23,6 +23,7 @@ public class AnswerDAO implements DAO<Answer> {
 
     @Override
     public Answer get(Long id) {
+        System.out.println("Hello world");
         return this.answerRepository.getById(id);
     }
 

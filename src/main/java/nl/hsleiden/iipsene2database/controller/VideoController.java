@@ -1,6 +1,7 @@
 package nl.hsleiden.iipsene2database.controller;
 
 import nl.hsleiden.iipsene2database.DAO.VideoDAO;
+import nl.hsleiden.iipsene2database.model.Result;
 import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,8 +30,8 @@ public class VideoController {
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Video get(@PathVariable("id") Long id){
-        return this.videoDAO.get(id);
+    public ResponseEntity<Video> get(@PathVariable("id") Long id){
+        return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)

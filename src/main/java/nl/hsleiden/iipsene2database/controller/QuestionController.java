@@ -29,8 +29,8 @@ public class QuestionController {
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Question get(@PathVariable("id") Long id){
-        return this.questionDAO.get(id);
+    public ResponseEntity<Question> get(@PathVariable("id") Long id){
+        return new ResponseEntity<>(this.questionDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/listId/{listId}", method = RequestMethod.GET)

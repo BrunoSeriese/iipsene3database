@@ -30,8 +30,8 @@ public class ExplanationController {
 
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public Explanation get(@PathVariable("id") Long id){
-        return this.explanationDAO.get(id);
+    public ResponseEntity<Explanation> get(@PathVariable("id") Long id){
+        return new ResponseEntity<>(this.explanationDAO.get(id), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
