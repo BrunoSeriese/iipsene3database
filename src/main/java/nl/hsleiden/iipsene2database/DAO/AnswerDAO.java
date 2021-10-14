@@ -5,8 +5,11 @@ import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
 import org.springframework.stereotype.Component;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
@@ -23,8 +26,9 @@ public class AnswerDAO implements DAO<Answer> {
 
     @Override
     public Answer get(Long id) {
-        System.out.println("Hello world");
-        return this.answerRepository.getById(id);
+        List<Answer> answers = this.answerRepository.findAll();
+        answers.removeIf(a -> !Objects.equals(a.getId(), id));
+        return answers.get(0);
     }
 
     public List<Answer> getByCurrentContentId(Long currentContentId) {

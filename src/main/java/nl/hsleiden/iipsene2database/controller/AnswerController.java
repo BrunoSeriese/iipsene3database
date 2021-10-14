@@ -31,7 +31,6 @@ public class AnswerController {
     @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<Answer> get(@PathVariable("id") Long id){
-        System.out.println(this.answerDAO.get(id));
         return new ResponseEntity<>(this.answerDAO.get(id), HttpStatus.OK);
     }
 

@@ -5,7 +5,6 @@ import nl.hsleiden.iipsene2database.model.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,7 +27,9 @@ public class ResultDAO implements DAO<Result> {
 
     @Override
     public Result get(Long id) {
-        return this.resultRepository.getById(id);
+        List<Result> results = this.resultRepository.findAll();
+        results.removeIf(r -> !Objects.equals(r.getId(), id));
+        return results.get(0);
     }
 
     @Override

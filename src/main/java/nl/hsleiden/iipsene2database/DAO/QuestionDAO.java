@@ -5,7 +5,6 @@ import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,7 +27,9 @@ public class QuestionDAO implements DAO<Question> {
 
     @Override
     public Question get(Long id) {
-        return this.questionRepository.getById(id);
+        List<Question> questions = this.questionRepository.findAll();
+        questions.removeIf(q -> !Objects.equals(q.getId(), id));
+        return questions.get(0);
     }
 
     public List<Question> getList(Long listId) {

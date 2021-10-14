@@ -5,7 +5,6 @@ import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,7 +27,9 @@ public class VideoDAO implements DAO<Video> {
 
     @Override
     public Video get(Long id) {
-        return this.videoRepository.getById(id);
+        List<Video> videos = this.videoRepository.findAll();
+        videos.removeIf(v -> !Objects.equals(v.getId(), id));
+        return videos.get(0);
     }
 
     @Override

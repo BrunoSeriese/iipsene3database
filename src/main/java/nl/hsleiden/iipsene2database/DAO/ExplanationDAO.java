@@ -5,7 +5,6 @@ import nl.hsleiden.iipsene2database.model.Explanation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -28,7 +27,9 @@ public class ExplanationDAO implements DAO<Explanation> {
 
     @Override
     public Explanation get(Long id) {
-        return this.explanationRepository.getById(id);
+        List<Explanation> explanations = this.explanationRepository.findAll();
+        explanations.removeIf(e -> !Objects.equals(e.getId(), id));
+        return explanations.get(0);
     }
 
     @Override
