@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/results")
@@ -25,10 +26,10 @@ public class ResultController {
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<Result> get(@PathVariable("id") int id){
-        return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.CREATED);
+    public Optional<Result> get(@PathVariable("id") Long id){
+        return this.resultDAO.get(id);
     }
 
     @RequestMapping(value = "post", method = RequestMethod.POST)
@@ -40,14 +41,14 @@ public class ResultController {
 
     @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") Long id){
         this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") Long id){
         this.resultDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

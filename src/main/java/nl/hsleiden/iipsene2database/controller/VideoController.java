@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/videos")
@@ -25,10 +26,10 @@ public class VideoController {
         return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/?id={id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<Video> get(@PathVariable("id") int id){
-        return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
+    public Optional<Video> get(@PathVariable("id") Long id){
+        return this.videoDAO.get(id);
     }
 
     @RequestMapping(value = "/post", method = RequestMethod.POST)
@@ -40,14 +41,14 @@ public class VideoController {
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") int id){
+    public ResponseEntity put(@PathVariable("id") Long id){
         this.videoDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") int id){
+    public ResponseEntity delete(@PathVariable("id") Long id){
         this.videoDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

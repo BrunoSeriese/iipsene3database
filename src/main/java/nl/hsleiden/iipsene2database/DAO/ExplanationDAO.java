@@ -4,6 +4,7 @@ import nl.hsleiden.iipsene2database.model.Explanation;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class ExplanationDAO implements DAO<Explanation> {
@@ -17,7 +18,7 @@ public class ExplanationDAO implements DAO<Explanation> {
     }
 
     @Override
-    public Explanation get(int id) {
+    public Optional<Explanation> get(Long id) {
         return null;
     }
 
@@ -26,10 +27,10 @@ public class ExplanationDAO implements DAO<Explanation> {
     }
 
     @Override
-    public void update(int id) {
+    public void update(Long id) {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
     }
 }

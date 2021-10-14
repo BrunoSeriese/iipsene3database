@@ -7,21 +7,22 @@ import javax.persistence.Transient;
 @Entity
 public class Video implements Content {
     @Id
-    private final int id;
-    private final String value;
+    private Long id;
+    private String value;
     @Transient
-    private final Answer answer;
+    private Answer answer;
 
-    public Video(int id,
-                       String value,
-                       Answer answer) {
-        this.id = id;
+    public Video(){
+
+    }
+
+    public Video(String value, Answer answer) {
         this.value = value;
         this.answer = answer;
     }
 
     @Override
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

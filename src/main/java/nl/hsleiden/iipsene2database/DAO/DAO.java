@@ -1,11 +1,12 @@
 package nl.hsleiden.iipsene2database.DAO;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public interface DAO<T> {
     ArrayList<T> getAll();
-    T get(int id);
+    Optional<T> get(Long id);
     void create();
-    void update(int id);
-    void delete(int id);
+    void update(Long id);
+    void delete(Long id);
 }

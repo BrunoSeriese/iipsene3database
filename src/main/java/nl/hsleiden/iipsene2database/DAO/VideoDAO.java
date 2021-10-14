@@ -4,6 +4,7 @@ import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class VideoDAO implements DAO<Video> {
@@ -17,7 +18,7 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public Video get(int id) {
+    public Optional<Video> get(Long id) {
         return null;
     }
 
@@ -26,10 +27,10 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public void update(int id) {
+    public void update(Long id) {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
     }
 }

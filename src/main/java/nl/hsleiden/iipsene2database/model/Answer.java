@@ -10,8 +10,6 @@ import javax.persistence.*;
 @Table(name = "answer")
 public class Answer  {
 
-
-
     @Id
     @GeneratedValue
     private Long id;

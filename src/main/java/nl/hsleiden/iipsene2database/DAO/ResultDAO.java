@@ -4,6 +4,7 @@ import nl.hsleiden.iipsene2database.model.Result;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Component
 public class ResultDAO implements DAO<Result> {
@@ -17,7 +18,7 @@ public class ResultDAO implements DAO<Result> {
     }
 
     @Override
-    public Result get(int id) {
+    public Optional<Result> get(Long id) {
         return null;
     }
 
@@ -26,10 +27,10 @@ public class ResultDAO implements DAO<Result> {
     }
 
     @Override
-    public void update(int id) {
+    public void update(Long id) {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(Long id) {
     }
 }
