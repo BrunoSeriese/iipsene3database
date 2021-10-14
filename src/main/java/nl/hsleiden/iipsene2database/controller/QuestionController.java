@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -34,7 +35,7 @@ public class QuestionController {
 
     @RequestMapping(value = "/listId/{listId}", method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<ArrayList<Question>> getListById(@PathVariable("listId") Long listId){
+    public ResponseEntity<List<Question>> getListById(@PathVariable("listId") Long listId){
         return new ResponseEntity<>(this.questionDAO.getList(listId), HttpStatus.OK);
     }
 
