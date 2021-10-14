@@ -1,17 +1,15 @@
 package nl.hsleiden.iipsene2database.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "content")
 public class Result implements Content {
-
     @Id
     @GeneratedValue
     private Long id;
     private String value;
+    private String type;
     @Transient
     private Answer answer;
 
@@ -19,10 +17,11 @@ public class Result implements Content {
 
     }
 
-    public Result(String value, Answer answer) {
+    public Result(String value,
+                  String type) {
 
         this.value = value;
-        this.answer = answer;
+        this.type = type;
     }
 
     @Override
@@ -35,7 +34,16 @@ public class Result implements Content {
         return value;
     }
 
+    @Override
+    public String getType() {
+        return type;
+    }
+
     public Answer getAnswer() {
         return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 }

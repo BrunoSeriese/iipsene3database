@@ -7,11 +7,11 @@ import javax.persistence.Transient;
 
 @Entity
 public class Explanation implements Content {
-
     @Id
     @GeneratedValue
     private Long id;
     private String value;
+    private String type;
     @Transient
     private Answer answer;
 
@@ -21,16 +21,17 @@ public class Explanation implements Content {
 
     public Explanation(
                        String value,
-                       Answer answer) {
+                       Answer answer,
+                       String type) {
 
         this.value = value;
         this.answer = answer;
+        this.type = type;
     }
-
 
     @Override
     public Long getId() {
-        return null;
+        return id;
     }
 
     @Override
@@ -38,7 +39,16 @@ public class Explanation implements Content {
         return value;
     }
 
+    @Override
+    public String getType() {
+        return type;
+    }
+
     public Answer getAnswer() {
         return answer;
+    }
+
+    public void setAnswer(Answer answer) {
+        this.answer = answer;
     }
 }

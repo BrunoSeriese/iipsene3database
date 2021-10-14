@@ -7,9 +7,8 @@ import javax.persistence.Table;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "answer")
+@Table(name = "content")
 public class Answer  {
-
     @Id
     @GeneratedValue
     private Long id;
@@ -17,20 +16,17 @@ public class Answer  {
     private int currentContentId;
     private int nextContentId;
 
-
     public Answer(){
 
     }
 
-    public Answer(
-                  String value,
+    public Answer(String value,
                   int currentContentId,
                   int nextContentId) {
         this.value = value;
         this.currentContentId = currentContentId;
         this.nextContentId = nextContentId;
     }
-
 
     public Long getId() {
         return this.id;
