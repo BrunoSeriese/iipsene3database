@@ -33,7 +33,8 @@ public class ExplanationDAO implements DAO<Explanation> {
     }
 
     @Override
-    public void create() {
+    public Explanation create(Explanation explanation) {
+        return this.explanationRepository.save(explanation);
     }
 
     @Override

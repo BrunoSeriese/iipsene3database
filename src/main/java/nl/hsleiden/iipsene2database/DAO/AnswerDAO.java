@@ -5,11 +5,8 @@ import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
 import org.springframework.stereotype.Component;
 
-import javax.swing.text.html.Option;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
@@ -42,7 +39,8 @@ public class AnswerDAO implements DAO<Answer> {
     }
 
     @Override
-    public void create() {
+    public Answer create(Answer answer) {
+        return this.answerRepository.save(answer);
     }
 
     @Override

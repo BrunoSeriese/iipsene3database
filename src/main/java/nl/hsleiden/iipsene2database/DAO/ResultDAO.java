@@ -33,7 +33,8 @@ public class ResultDAO implements DAO<Result> {
     }
 
     @Override
-    public void create() {
+    public Result create(Result result) {
+        return this.resultRepository.save(result);
     }
 
     @Override

@@ -22,52 +22,51 @@ public class AnswerController {
         this.answerDAO = answerDAO;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     @ResponseBody
     public ResponseEntity<List<Answer>> getAll(){
         return new ResponseEntity<>(this.answerDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/id/{id}")
     @ResponseBody
     public ResponseEntity<Answer> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.answerDAO.get(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/currentContentId/{currentContentId}", method = RequestMethod.GET)
+    @GetMapping(value = "/currentContentId/{currentContentId}")
     @ResponseBody
     public ResponseEntity<List<Answer>> getByCurrentContentId(@PathVariable("currentContentId") Long currentContentId){
         return new ResponseEntity<>(this.answerDAO.getByCurrentContentId(currentContentId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id/{id}/nextContent", method = RequestMethod.GET)
+    @GetMapping(value = "/id/{id}/nextContent")
     @ResponseBody
     public ResponseEntity<Content> getNextContentById(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.answerDAO.getNextContentById(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @PostMapping(value = "/post")
     @ResponseBody
-    public ResponseEntity post(@PathVariable("id") Long id){
-        this.answerDAO.create();
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Answer> post(Answer answer){
+        return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/put/id/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.answerDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/delete/id/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.answerDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/patch/contentId/{contentId}", method = RequestMethod.PATCH)
+    @PatchMapping(value = "/patch/contentId/{contentId}")
     @ResponseBody
     public ResponseEntity patchList(@PathVariable("contentId") Long contentId){
         this.answerDAO.patchList(contentId);

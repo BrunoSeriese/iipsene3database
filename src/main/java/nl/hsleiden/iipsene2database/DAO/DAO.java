@@ -1,12 +1,13 @@
 package nl.hsleiden.iipsene2database.DAO;
 
+import nl.hsleiden.iipsene2database.model.Answer;
+
 import java.util.List;
-import java.util.Optional;
 
 public interface DAO<T> {
     List<T> getAll();
     T get(Long id);
-    void create();
+    T create(T t);
     void update(Long id);
     void delete(Long id);
 }

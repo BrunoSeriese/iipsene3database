@@ -21,60 +21,59 @@ public class QuestionController {
         this.questionDAO = questionDAO;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     @ResponseBody
     public ResponseEntity<List<Question>> getAll(){
         return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/id/{id}")
     @ResponseBody
     public ResponseEntity<Question> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.questionDAO.get(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/listId/{listId}", method = RequestMethod.GET)
+    @GetMapping(value = "/listId/{listId}")
     @ResponseBody
     public ResponseEntity<List<Question>> getListById(@PathVariable("listId") Long listId){
         return new ResponseEntity<>(this.questionDAO.getList(listId), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @PostMapping(value = "/post")
     @ResponseBody
-    public ResponseEntity post(){
-        this.questionDAO.create();
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Question> post(Question question){
+        return new ResponseEntity<>(this.questionDAO.create(question), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/post/listId/{listId}", method = RequestMethod.POST)
+    @PostMapping(value = "/post/listId/{listId}")
     @ResponseBody
     public ResponseEntity postList(@PathVariable("listId") Long listId){
         this.questionDAO.postList(listId);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/put/id/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.questionDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/delete/id/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.questionDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/delete/listId/{listId}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/delete/listId/{listId}")
     @ResponseBody
     public ResponseEntity deleteList(@PathVariable("listId") Long listId){
         this.questionDAO.deleteList(listId);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(value = "/patch/listId/{listId}", method = RequestMethod.PATCH)
+    @PatchMapping(value = "/patch/listId/{listId}")
     @ResponseBody
     public ResponseEntity patchList(@PathVariable("listId") Long listId){
         this.questionDAO.patchList(listId);

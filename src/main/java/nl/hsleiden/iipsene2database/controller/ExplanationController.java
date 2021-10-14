@@ -22,33 +22,32 @@ public class ExplanationController {
         this.explanationDAO = explanationDAO;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     @ResponseBody
     public ResponseEntity<List<Explanation>> getAll(){
         return new ResponseEntity<>(this.explanationDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/id/{id}")
     @ResponseBody
     public ResponseEntity<Explanation> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.explanationDAO.get(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/post", method = RequestMethod.POST)
+    @PostMapping(value = "/post")
     @ResponseBody
-    public ResponseEntity post(){
-        this.explanationDAO.create();
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<Explanation> post(Explanation explanation){
+        return new ResponseEntity<>(this.explanationDAO.create(explanation), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/put/id/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.explanationDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/delete/id/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.explanationDAO.delete(id);

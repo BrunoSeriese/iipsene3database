@@ -37,7 +37,8 @@ public class QuestionDAO implements DAO<Question> {
     }
 
     @Override
-    public void create() {
+    public Question create(Question question) {
+        return this.questionRepository.save(question);
     }
 
     public void postList(Long listId) {

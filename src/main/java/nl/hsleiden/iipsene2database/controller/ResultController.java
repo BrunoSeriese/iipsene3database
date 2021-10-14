@@ -21,33 +21,32 @@ public class ResultController {
         this.resultDAO = resultDAO;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping(value = "")
     @ResponseBody
     public ResponseEntity<List<Result>> getAll(){
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/id/{id}")
     @ResponseBody
     public ResponseEntity<Result> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "post", method = RequestMethod.POST)
+    @PostMapping(value = "post")
     @ResponseBody
-    public ResponseEntity post(){
-        this.resultDAO.create();
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Result> post(Result result){
+        return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/put/id/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/delete/id/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.resultDAO.delete(id);

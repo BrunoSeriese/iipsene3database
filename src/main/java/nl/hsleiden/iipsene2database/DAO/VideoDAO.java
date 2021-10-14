@@ -33,7 +33,8 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public void create() {
+    public Video create(Video video) {
+        return this.videoRepository.save(video);
     }
 
     @Override
