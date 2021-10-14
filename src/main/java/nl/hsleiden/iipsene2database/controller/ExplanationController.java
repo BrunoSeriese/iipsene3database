@@ -27,7 +27,7 @@ public class ExplanationController {
         return new ResponseEntity<>(this.explanationDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Optional<Explanation> get(@PathVariable("id") Long id){
         return this.explanationDAO.get(id);
@@ -40,14 +40,14 @@ public class ExplanationController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.explanationDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.explanationDAO.delete(id);

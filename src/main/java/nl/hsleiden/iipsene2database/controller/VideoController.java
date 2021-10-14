@@ -26,7 +26,7 @@ public class VideoController {
         return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Optional<Video> get(@PathVariable("id") Long id){
         return this.videoDAO.get(id);
@@ -39,14 +39,14 @@ public class VideoController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/?id={id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.videoDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/?id={id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.videoDAO.delete(id);

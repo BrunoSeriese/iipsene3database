@@ -26,7 +26,7 @@ public class ResultController {
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Optional<Result> get(@PathVariable("id") Long id){
         return this.resultDAO.get(id);
@@ -39,14 +39,14 @@ public class ResultController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/put/?id={id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/put/id/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/delete/?id={id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/id/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.resultDAO.delete(id);
