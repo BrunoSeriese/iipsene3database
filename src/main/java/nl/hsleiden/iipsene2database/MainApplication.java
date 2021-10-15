@@ -7,8 +7,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories(basePackages = {"nl.hsleiden.iipsene2database.security"})
-@ComponentScan(basePackages = {"nl.hsleiden.DAO"})
-@EntityScan(basePackages = {"nl.hsleiden.model"})
+@ComponentScan(basePackages = {"nl.hsleiden.iipsene2database.DAO"})
+@EntityScan(basePackages = {"nl.hsleiden.iipsene2database.model"})
 @SpringBootApplication
 public class MainApplication {
 
