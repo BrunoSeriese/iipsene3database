@@ -1,9 +1,12 @@
 package nl.hsleiden.iipsene2database.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "content")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Result implements Content {
     @Id
     @GeneratedValue

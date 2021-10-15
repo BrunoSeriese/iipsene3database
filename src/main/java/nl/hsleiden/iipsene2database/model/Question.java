@@ -1,9 +1,13 @@
 package nl.hsleiden.iipsene2database.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "content")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Question implements Content {
     @Id
     @GeneratedValue
@@ -45,4 +49,10 @@ public class Question implements Content {
     public void setAnswers(Answer[] answers) {
         this.answers = answers;
     }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers.toArray(new Answer[0]);
+    }
+
+
 }

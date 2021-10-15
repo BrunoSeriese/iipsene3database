@@ -1,11 +1,12 @@
 package nl.hsleiden.iipsene2database.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "content")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Explanation implements Content {
     @Id
     @GeneratedValue
@@ -19,11 +20,9 @@ public class Explanation implements Content {
 
     }
 
-    public Explanation(
-                       String value,
+    public Explanation(String value,
                        Answer answer,
                        String type) {
-
         this.value = value;
         this.answer = answer;
         this.type = type;
