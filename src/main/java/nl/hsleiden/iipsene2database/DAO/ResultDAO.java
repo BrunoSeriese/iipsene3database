@@ -57,10 +57,12 @@ public class ResultDAO implements DAO<Result> {
     }
 
     @Override
-    public void update(Long id) {
+    public Result update(Long id) {
+        return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public Result delete(Long id) {
+        return null;
     }
 }

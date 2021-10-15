@@ -57,10 +57,12 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public void update(Long id) {
+    public Video update(Long id) {
+        return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public Video delete(Long id) {
+        return null;
     }
 }

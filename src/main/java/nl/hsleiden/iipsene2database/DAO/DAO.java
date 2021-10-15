@@ -8,6 +8,6 @@ public interface DAO<T> {
     List<T> getAll();
     T get(Long id);
     T create(T t);
-    void update(Long id);
-    void delete(Long id);
+    T update(Long id);
+    T delete(Long id);
 }

@@ -6,7 +6,6 @@ import nl.hsleiden.iipsene2database.model.Content;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
@@ -42,14 +41,17 @@ public class AnswerDAO implements DAO<Answer> {
     }
 
     @Override
-    public void update(Long id) {
+    public Answer update(Long id) {
+        return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public Answer delete(Long id) {
+        return null;
     }
 
-    public void patchList(Long questionId) {
+    public List<Answer> patchList(Long contentId) {
+        return null;
     }
 
 }

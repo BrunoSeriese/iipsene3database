@@ -58,10 +58,12 @@ public class ExplanationDAO implements DAO<Explanation> {
     }
 
     @Override
-    public void update(Long id) {
+    public Explanation update(Long id) {
+        return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public Explanation delete(Long id) {
+        return null;
     }
 }

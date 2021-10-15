@@ -62,20 +62,25 @@ public class QuestionDAO implements DAO<Question> {
         return this.questionRepository.save(question);
     }
 
-    public void postList(Long listId) {
+    public List<Question> createList(Long listId) {
+        return null;
     }
 
     @Override
-    public void update(Long id) {
+    public Question update(Long id) {
+        return null;
     }
 
     @Override
-    public void delete(Long id) {
+    public Question delete(Long id) {
+        return null;
     }
 
-    public void deleteList(Long listId) {
+    public List<Question> deleteList(Long listId) {
+        return null;
     }
 
-    public void patchList(Long listId) {
+    public List<Question> patchList(Long listId) {
+        return null;
     }
 }
