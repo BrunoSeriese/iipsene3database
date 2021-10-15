@@ -6,9 +6,9 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@EnableJpaRepositories({"nl.hsleiden.iipsene2database.security"})
-@ComponentScan({"nl.hsleiden.DAO"})
-@EntityScan("nl.hsleiden.model")
+@EnableJpaRepositories(basePackages = {"nl.hsleiden.iipsene2database.security"})
+@ComponentScan(basePackages = {"nl.hsleiden.DAO"})
+@EntityScan(basePackages = {"nl.hsleiden.model"})
 @SpringBootApplication
 public class MainApplication {
 
