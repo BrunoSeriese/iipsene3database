@@ -3,6 +3,7 @@ package nl.hsleiden.iipsene2database.DAO;
 import nl.hsleiden.iipsene2database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class AnswerDAO implements DAO<Answer> {
     private final AnswerRepository answerRepository;
 
+    @Autowired
     public AnswerDAO(AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;
     }
