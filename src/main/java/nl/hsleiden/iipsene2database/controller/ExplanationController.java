@@ -49,7 +49,7 @@ public class ExplanationController {
 
     @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Explanation> delete(@RequestBody Explanation explanation{
+    public ResponseEntity<Explanation> delete(@RequestBody Explanation explanation){
         this.explanationDAO.delete(explanation);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

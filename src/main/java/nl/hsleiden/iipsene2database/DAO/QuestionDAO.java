@@ -76,7 +76,7 @@ public class QuestionDAO implements DAO<Question> {
         this.questionRepository.delete(question);
     }
 
-    public List<Question> deleteList(Long listId) {
+    public List<Question> deleteList(List<Question> questions) {
         return null;
     }
 
