@@ -21,10 +21,8 @@ public class Explanation implements Content {
     }
 
     public Explanation(String value,
-                       Answer answer,
                        String type) {
         this.value = value;
-        this.answer = answer;
         this.type = type;
     }
 
