@@ -63,7 +63,7 @@ public class ExplanationDAO implements DAO<Explanation> {
     }
 
     @Override
-    public Explanation delete(Long id) {
-        return null;
+    public void delete(Explanation explanation) {
+        this.explanationRepository.delete(explanation);
     }
 }

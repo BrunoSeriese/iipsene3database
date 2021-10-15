@@ -72,8 +72,8 @@ public class QuestionDAO implements DAO<Question> {
     }
 
     @Override
-    public Question delete(Long id) {
-        return null;
+    public void delete(Question question) {
+        this.questionRepository.delete(question);
     }
 
     public List<Question> deleteList(Long listId) {

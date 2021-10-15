@@ -62,7 +62,7 @@ public class VideoDAO implements DAO<Video> {
     }
 
     @Override
-    public Video delete(Long id) {
-        return null;
+    public void delete(Video video) {
+        this.videoRepository.delete(video);
     }
 }

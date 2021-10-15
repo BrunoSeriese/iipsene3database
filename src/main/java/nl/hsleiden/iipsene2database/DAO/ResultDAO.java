@@ -62,7 +62,7 @@ public class ResultDAO implements DAO<Result> {
     }
 
     @Override
-    public Result delete(Long id) {
-        return null;
+    public void delete(Result result) {
+        this.resultRepository.delete(result);
     }
 }

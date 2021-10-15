@@ -46,8 +46,8 @@ public class AnswerDAO implements DAO<Answer> {
     }
 
     @Override
-    public Answer delete(Long id) {
-        return null;
+    public void delete(Answer answer) {
+        this.answerRepository.delete(answer);
     }
 
     public List<Answer> patchList(Long contentId) {

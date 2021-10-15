@@ -9,5 +9,5 @@ public interface DAO<T> {
     T get(Long id);
     T create(T t);
     T update(Long id);
-    T delete(Long id);
+    void delete(T t);
 }
