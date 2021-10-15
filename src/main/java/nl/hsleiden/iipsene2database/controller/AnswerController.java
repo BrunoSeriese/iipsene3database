@@ -28,7 +28,7 @@ public class AnswerController {
         return new ResponseEntity<>(this.answerDAO.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Answer> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.answerDAO.get(id), HttpStatus.OK);
@@ -40,33 +40,33 @@ public class AnswerController {
         return new ResponseEntity<>(this.answerDAO.getByCurrentContentId(currentContentId), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}/nextContent")
+    @GetMapping(value = "/{id}/nextContent")
     @ResponseBody
     public ResponseEntity<Content> getNextContentById(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.answerDAO.getNextContentById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<Answer> post(Answer answer){
         return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/put/id/{id}")
+    @PutMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.answerDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/id/{id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.answerDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/patch/contentId/{contentId}")
+    @PatchMapping(value = "/contentId/{contentId}")
     @ResponseBody
     public ResponseEntity patchList(@PathVariable("contentId") Long contentId){
         this.answerDAO.patchList(contentId);

@@ -28,26 +28,26 @@ public class ExplanationController {
         return new ResponseEntity<>(this.explanationDAO.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Explanation> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.explanationDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<Explanation> post(Explanation explanation){
         return new ResponseEntity<>(this.explanationDAO.create(explanation), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/put/id/{id}")
+    @PutMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.explanationDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/id/{id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.explanationDAO.delete(id);

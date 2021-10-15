@@ -27,26 +27,26 @@ public class ResultController {
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Result> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "post")
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<Result> post(Result result){
         return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
     }
 
-    @PutMapping(value = "/put/id/{id}")
+    @PutMapping(value = "{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/id/{id}")
+    @DeleteMapping(value = "{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.resultDAO.delete(id);

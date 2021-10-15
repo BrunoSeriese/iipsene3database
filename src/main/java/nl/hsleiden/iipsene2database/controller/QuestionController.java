@@ -27,7 +27,7 @@ public class QuestionController {
         return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Question> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.questionDAO.get(id), HttpStatus.OK);
@@ -39,41 +39,41 @@ public class QuestionController {
         return new ResponseEntity<>(this.questionDAO.getList(listId), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<Question> post(Question question){
         return new ResponseEntity<>(this.questionDAO.create(question), HttpStatus.CREATED);
     }
 
-    @PostMapping(value = "/post/listId/{listId}")
+    @PostMapping(value = "/listId/{listId}")
     @ResponseBody
     public ResponseEntity postList(@PathVariable("listId") Long listId){
         this.questionDAO.postList(listId);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/put/id/{id}")
+    @PutMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.questionDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/delete/id/{id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.questionDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping(value = "/delete/listId/{listId}")
+    @DeleteMapping(value = "/listId/{listId}")
     @ResponseBody
     public ResponseEntity deleteList(@PathVariable("listId") Long listId){
         this.questionDAO.deleteList(listId);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/patch/listId/{listId}")
+    @PatchMapping(value = "/listId/{listId}")
     @ResponseBody
     public ResponseEntity patchList(@PathVariable("listId") Long listId){
         this.questionDAO.patchList(listId);

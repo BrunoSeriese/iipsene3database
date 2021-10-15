@@ -28,27 +28,27 @@ public class VideoController {
         return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/id/{id}")
+    @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Video> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/post")
+    @PostMapping(value = "")
     @ResponseBody
     public ResponseEntity<Video> post(Video video){
         this.videoDAO.create(video);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/id/{id}")
+    @PutMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity put(@PathVariable("id") Long id){
         this.videoDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/id/{id}")
+    @DeleteMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity delete(@PathVariable("id") Long id){
         this.videoDAO.delete(id);
