@@ -47,35 +47,35 @@ public class QuestionController {
 
     @PostMapping(value = "/listId/{listId}")
     @ResponseBody
-    public ResponseEntity postList(@PathVariable("listId") Long listId){
+    public ResponseEntity<List<Question>> postList(@PathVariable("listId") Long listId){
         this.questionDAO.postList(listId);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") Long id){
+    public ResponseEntity<Question> put(@PathVariable("id") Long id){
         this.questionDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") Long id){
+    public ResponseEntity<Question> delete(@PathVariable("id") Long id){
         this.questionDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @DeleteMapping(value = "/listId/{listId}")
     @ResponseBody
-    public ResponseEntity deleteList(@PathVariable("listId") Long listId){
+    public ResponseEntity<List<Question>> deleteList(@PathVariable("listId") Long listId){
         this.questionDAO.deleteList(listId);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @PatchMapping(value = "/listId/{listId}")
     @ResponseBody
-    public ResponseEntity patchList(@PathVariable("listId") Long listId){
+    public ResponseEntity<List<Question>> patchList(@PathVariable("listId") Long listId){
         this.questionDAO.patchList(listId);
         return new ResponseEntity<>(HttpStatus.OK);
     }

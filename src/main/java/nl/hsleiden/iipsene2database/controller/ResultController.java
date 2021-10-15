@@ -41,14 +41,14 @@ public class ResultController {
 
     @PutMapping(value = "{id}")
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") Long id){
+    public ResponseEntity<Result> put(@PathVariable("id") Long id){
         this.resultDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "{id}")
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") Long id){
+    public ResponseEntity<Result> delete(@PathVariable("id") Long id){
         this.resultDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

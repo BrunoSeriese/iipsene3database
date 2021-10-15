@@ -43,14 +43,14 @@ public class VideoController {
 
     @PutMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") Long id){
+    public ResponseEntity<Video> put(@PathVariable("id") Long id){
         this.videoDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") Long id){
+    public ResponseEntity<Video> delete(@PathVariable("id") Long id){
         this.videoDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }

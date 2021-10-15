@@ -54,21 +54,21 @@ public class AnswerController {
 
     @PutMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") Long id){
+    public ResponseEntity<Answer> put(@PathVariable("id") Long id){
         this.answerDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") Long id){
+    public ResponseEntity<Answer> delete(@PathVariable("id") Long id){
         this.answerDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
     @PatchMapping(value = "/contentId/{contentId}")
     @ResponseBody
-    public ResponseEntity patchList(@PathVariable("contentId") Long contentId){
+    public ResponseEntity<List<Answer>> patchList(@PathVariable("contentId") Long contentId){
         this.answerDAO.patchList(contentId);
         return new ResponseEntity<>(HttpStatus.OK);
     }

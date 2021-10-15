@@ -42,14 +42,14 @@ public class ExplanationController {
 
     @PutMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity put(@PathVariable("id") Long id){
+    public ResponseEntity<Explanation> put(@PathVariable("id") Long id){
         this.explanationDAO.update(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
     @ResponseBody
-    public ResponseEntity delete(@PathVariable("id") Long id){
+    public ResponseEntity<Explanation> delete(@PathVariable("id") Long id){
         this.explanationDAO.delete(id);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
