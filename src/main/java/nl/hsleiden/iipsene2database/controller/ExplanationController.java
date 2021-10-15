@@ -36,7 +36,7 @@ public class ExplanationController {
 
     @PostMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Explanation> post(Explanation explanation){
+    public ResponseEntity<Explanation> post(@RequestBody Explanation explanation){
         return new ResponseEntity<>(this.explanationDAO.create(explanation), HttpStatus.CREATED);
     }
 
@@ -47,10 +47,10 @@ public class ExplanationController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Explanation> delete(@PathVariable("id") Long id){
-        this.explanationDAO.delete(id);
+    public ResponseEntity<Explanation> delete(@RequestBody Explanation explanation{
+        this.explanationDAO.delete(explanation);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

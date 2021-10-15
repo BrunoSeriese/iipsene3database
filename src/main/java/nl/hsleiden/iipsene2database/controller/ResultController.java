@@ -35,7 +35,7 @@ public class ResultController {
 
     @PostMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Result> post(Result result){
+    public ResponseEntity<Result> post(@RequestBody Result result){
         return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
     }
 
@@ -46,10 +46,10 @@ public class ResultController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "{id}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Result> delete(@PathVariable("id") Long id){
-        this.resultDAO.delete(id);
+    public ResponseEntity<Result> delete(@RequestBody Result result){
+        this.resultDAO.delete(result);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }

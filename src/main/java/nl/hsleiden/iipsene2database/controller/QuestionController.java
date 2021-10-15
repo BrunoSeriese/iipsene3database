@@ -41,7 +41,7 @@ public class QuestionController {
 
     @PostMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Question> post(Question question){
+    public ResponseEntity<Question> post(@RequestBody Question question){
         return new ResponseEntity<>(this.questionDAO.create(question), HttpStatus.CREATED);
     }
 
@@ -59,17 +59,17 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Question> delete(@PathVariable("id") Long id){
-        this.questionDAO.delete(id);
+    public ResponseEntity<Question> delete(@RequestBody Question question){
+        this.questionDAO.delete(question);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping(value = "/listId/{listId}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<List<Question>> deleteList(@PathVariable("listId") Long listId){
-        this.questionDAO.deleteList(listId);
+    public ResponseEntity<List<Question>> deleteList(@RequestBody List<Question> questions){
+        this.questionDAO.deleteList(questions);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 

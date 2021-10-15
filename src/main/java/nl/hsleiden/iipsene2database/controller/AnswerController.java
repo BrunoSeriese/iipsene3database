@@ -48,7 +48,7 @@ public class AnswerController {
 
     @PostMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Answer> post(Answer answer){
+    public ResponseEntity<Answer> post(@RequestBody Answer answer){
         return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
     }
 
@@ -59,10 +59,10 @@ public class AnswerController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Answer> delete(@PathVariable("id") Long id){
-        this.answerDAO.delete(id);
+    public ResponseEntity<Answer> delete(@RequestBody Answer answer){
+        this.answerDAO.delete(answer);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 

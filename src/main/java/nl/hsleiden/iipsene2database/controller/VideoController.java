@@ -36,7 +36,7 @@ public class VideoController {
 
     @PostMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Video> post(Video video){
+    public ResponseEntity<Video> post(@RequestBody Video video){
         this.videoDAO.create(video);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
@@ -48,10 +48,10 @@ public class VideoController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "")
     @ResponseBody
-    public ResponseEntity<Video> delete(@PathVariable("id") Long id){
-        this.videoDAO.delete(id);
+    public ResponseEntity<Video> delete(@RequestBody Video video){
+        this.videoDAO.delete(video);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 }
