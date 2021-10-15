@@ -48,7 +48,7 @@ public class QuestionController {
     @PostMapping(value = "/listId/{listId}")
     @ResponseBody
     public ResponseEntity<List<Question>> postList(@PathVariable("listId") Long listId){
-        this.questionDAO.postList(listId);
+        this.questionDAO.createList(listId);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
