@@ -23,9 +23,7 @@ public class AnswerDAO implements DAO<Answer> {
 
     @Override
     public Answer get(Long id) {
-        List<Answer> answers = this.answerRepository.findAll();
-        answers.removeIf(a -> !Objects.equals(a.getId(), id));
-        return answers.get(0);
+        return this.answerRepository.getById(id);
     }
 
     public List<Answer> getByCurrentContentId(Long currentContentId) {
