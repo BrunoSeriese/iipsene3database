@@ -66,7 +66,7 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping(value = "/list")
     @ResponseBody
     public ResponseEntity<List<Question>> deleteList(@RequestBody List<Question> questions){
         this.questionDAO.deleteList(questions);

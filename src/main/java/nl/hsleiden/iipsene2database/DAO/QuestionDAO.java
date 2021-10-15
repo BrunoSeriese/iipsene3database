@@ -3,14 +3,12 @@ package nl.hsleiden.iipsene2database.DAO;
 import nl.hsleiden.iipsene2database.DAO.Repository.QuestionRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Question;
-import org.jboss.jandex.Index;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Component
 public class QuestionDAO implements DAO<Question> {
@@ -76,8 +74,7 @@ public class QuestionDAO implements DAO<Question> {
         this.questionRepository.delete(question);
     }
 
-    public List<Question> deleteList(List<Question> questions) {
-        return null;
+    public void deleteList(List<Question> questions) {
     }
 
     public List<Question> patchList(Long listId) {
