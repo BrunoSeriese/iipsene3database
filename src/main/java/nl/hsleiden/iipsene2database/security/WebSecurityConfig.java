@@ -23,6 +23,7 @@ import nl.hsleiden.iipsene2database.security.UserDetailsServiceImpl;
         // jsr250Enabled = true,
         prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
