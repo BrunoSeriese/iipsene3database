@@ -3,13 +3,11 @@ package nl.hsleiden.iipsene2database.DAO;
 import nl.hsleiden.iipsene2database.DAO.Repository.ExplanationRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Explanation;
-import org.jboss.jandex.Index;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Component
 public class ExplanationDAO implements DAO<Explanation> {
