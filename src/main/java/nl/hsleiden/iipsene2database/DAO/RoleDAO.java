@@ -14,17 +14,17 @@ public class RoleDAO implements DAO<Role> {
 
     @Override
     public List<Role> getAll() {
-        return null;
+        return this.roleRepository.findAll();
     }
 
     @Override
     public Role get(Long id) {
-        return null;
+        return this.roleRepository.getById(id);
     }
 
     @Override
     public Role create(Role role) {
-        return null;
+        return this.roleRepository.save(role);
     }
 
     @Override
@@ -34,6 +34,6 @@ public class RoleDAO implements DAO<Role> {
 
     @Override
     public void delete(Role role) {
-
+        this.roleRepository.delete(role);
     }
 }
