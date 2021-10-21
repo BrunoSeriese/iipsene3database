@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtUtil {
 
-    @Value("${bezkoder.app.jwtSecret}")
+    @Value("${nl.hsleiden.iipsene2database.app.jwtSecret}")
     private String secret;
 
     public String extractEmail(String token) {
