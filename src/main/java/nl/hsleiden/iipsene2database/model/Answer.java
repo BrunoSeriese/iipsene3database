@@ -1,12 +1,9 @@
 package nl.hsleiden.iipsene2database.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.*;
 
 @Entity
 @Table(name = "answer")

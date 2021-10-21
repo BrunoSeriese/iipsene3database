@@ -1,16 +1,13 @@
 package nl.hsleiden.iipsene2database.controller;
 
 import nl.hsleiden.iipsene2database.DAO.VideoDAO;
-import nl.hsleiden.iipsene2database.model.Result;
 import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/videos")
