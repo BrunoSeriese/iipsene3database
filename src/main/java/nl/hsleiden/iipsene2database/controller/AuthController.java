@@ -32,11 +32,6 @@ public class AuthController {
         return new ResponseEntity<>("Hello" + name, HttpStatus.OK);
     }
 
-    @GetMapping("/adminFunction")
-    public ResponseEntity<?> adminFunction() {
-        return new ResponseEntity<>("Hello", HttpStatus.OK);
-    }
-
     private void authenticate(String email, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
