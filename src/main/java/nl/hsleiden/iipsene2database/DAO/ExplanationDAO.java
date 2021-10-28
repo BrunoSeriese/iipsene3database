@@ -24,7 +24,6 @@ public class ExplanationDAO implements DAO<Explanation> {
     @Override
     public List<Explanation> getAll() {
         List<Explanation> explanations = this.explanationRepository.findAll();
-        explanations.removeIf(e -> !Objects.equals(e.getType(), "EXPLANATION"));
         explanations.forEach(e -> {
             Answer answer;
             try {

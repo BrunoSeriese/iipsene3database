@@ -25,7 +25,6 @@ public class QuestionDAO implements DAO<Question> {
     @Override
     public List<Question> getAll() {
         List<Question> questions = this.questionRepository.findAll();
-        questions.removeIf(q -> !Objects.equals(q.getType(), "QUESTION"));
         questions.forEach(q -> {
             List<Answer> answers = new ArrayList<>();
             try {

@@ -24,7 +24,6 @@ public class ResultDAO implements DAO<Result> {
     @Override
     public List<Result> getAll() {
         List<Result> results = this.resultRepository.findAll();
-        results.removeIf(r -> !Objects.equals(r.getType(), "RESULT"));
         results.forEach(r -> {
             Answer answer;
             try {

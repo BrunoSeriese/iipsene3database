@@ -24,7 +24,6 @@ public class VideoDAO implements DAO<Video> {
     @Override
     public List<Video> getAll() {
         List<Video> videos = this.videoRepository.findAll();
-        videos.removeIf(v -> !Objects.equals(v.getType(), "VIDEO"));
         videos.forEach(v -> {
             Answer answer;
             try {
