@@ -2,6 +2,7 @@ package nl.hsleiden.iipsene2database.controller;
 
 import nl.hsleiden.iipsene2database.DAO.VideoDAO;
 import nl.hsleiden.iipsene2database.model.Video;
+import nl.hsleiden.iipsene2database.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +15,19 @@ import java.util.List;
 public class VideoController {
     @Autowired
     private VideoDAO videoDAO;
+    @Autowired
+    private VideoService videoService;
 
     @GetMapping
     @ResponseBody
     public ResponseEntity<List<Video>> getAll(){
-        return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
+        return new ResponseEntity<>(this.videoService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}")
     @ResponseBody
     public ResponseEntity<Video> get(@PathVariable("id") Long id){
-        return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
+        return new ResponseEntity<>(this.videoService.get(id), HttpStatus.OK);
     }
 
     @PostMapping
