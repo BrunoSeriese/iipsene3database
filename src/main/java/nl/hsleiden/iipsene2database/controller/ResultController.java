@@ -19,7 +19,7 @@ public class ResultController {
         this.resultDAO = resultDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Result>> getAll(){
         return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
@@ -31,7 +31,7 @@ public class ResultController {
         return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Result> post(@RequestBody Result result){
         return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
@@ -44,7 +44,7 @@ public class ResultController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Result> delete(@RequestBody Result result){
         this.resultDAO.delete(result);

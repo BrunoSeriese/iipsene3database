@@ -19,7 +19,7 @@ public class QuestionController {
         this.questionDAO = questionDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Question>> getAll(){
         return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
@@ -37,7 +37,7 @@ public class QuestionController {
         return new ResponseEntity<>(this.questionDAO.getList(listId), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Question> post(@RequestBody Question question){
         return new ResponseEntity<>(this.questionDAO.create(question), HttpStatus.CREATED);
@@ -57,7 +57,7 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Question> delete(@RequestBody Question question){
         this.questionDAO.delete(question);

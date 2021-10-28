@@ -20,7 +20,7 @@ public class AnswerController {
         this.answerDAO = answerDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Answer>> getAll(){
         return new ResponseEntity<>(this.answerDAO.getAll(), HttpStatus.OK);
@@ -44,7 +44,7 @@ public class AnswerController {
         return new ResponseEntity<>(this.answerDAO.getNextContentById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Answer> post(@RequestBody Answer answer){
         return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
@@ -57,7 +57,7 @@ public class AnswerController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Answer> delete(@RequestBody Answer answer){
         this.answerDAO.delete(answer);

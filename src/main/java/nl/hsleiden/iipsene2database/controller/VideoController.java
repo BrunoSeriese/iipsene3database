@@ -19,7 +19,7 @@ public class VideoController {
         this.videoDAO = videoDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Video>> getAll(){
         return new ResponseEntity<>(this.videoDAO.getAll(), HttpStatus.OK);
@@ -31,7 +31,7 @@ public class VideoController {
         return new ResponseEntity<>(this.videoDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Video> post(@RequestBody Video video){
         this.videoDAO.create(video);
@@ -45,7 +45,7 @@ public class VideoController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Video> delete(@RequestBody Video video){
         this.videoDAO.delete(video);

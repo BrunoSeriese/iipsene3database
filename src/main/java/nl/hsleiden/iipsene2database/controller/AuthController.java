@@ -27,11 +27,6 @@ public class AuthController {
         return new ResponseEntity<>(jwtUtil.generateToken(authRequest.getEmail()), HttpStatus.OK);
     }
 
-    @PostMapping("/test")
-    public ResponseEntity<String> test(@RequestBody String name) {
-        return new ResponseEntity<>("Hello" + name, HttpStatus.OK);
-    }
-
     private void authenticate(String email, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));

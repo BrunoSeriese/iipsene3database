@@ -19,7 +19,7 @@ public class ExplanationController {
         this.explanationDAO = explanationDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Explanation>> getAll(){
         return new ResponseEntity<>(this.explanationDAO.getAll(), HttpStatus.OK);
@@ -31,7 +31,7 @@ public class ExplanationController {
         return new ResponseEntity<>(this.explanationDAO.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Explanation> post(@RequestBody Explanation explanation){
         return new ResponseEntity<>(this.explanationDAO.create(explanation), HttpStatus.CREATED);
@@ -44,7 +44,7 @@ public class ExplanationController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Explanation> delete(@RequestBody Explanation explanation){
         this.explanationDAO.delete(explanation);
