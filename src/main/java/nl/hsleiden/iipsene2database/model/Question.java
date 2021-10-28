@@ -20,13 +20,6 @@ public class Question implements Content {
     public Question(){
     }
 
-    public Question(String value,
-                    String type) {
-
-        this.value = value;
-        this.type = type;
-    }
-
     @Override
     public Long getId() {
         return id;

@@ -22,12 +22,6 @@ public class Video implements Content {
 
     }
 
-    public Video(String value,
-                 String type) {
-        this.value = value;
-        this.type = type;
-    }
-
     @Override
     public Long getId() {
         return id;

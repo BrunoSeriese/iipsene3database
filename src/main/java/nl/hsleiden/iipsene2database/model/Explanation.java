@@ -20,12 +20,6 @@ public class Explanation implements Content {
 
     }
 
-    public Explanation(String value,
-                       String type) {
-        this.value = value;
-        this.type = type;
-    }
-
     @Override
     public Long getId() {
         return id;
