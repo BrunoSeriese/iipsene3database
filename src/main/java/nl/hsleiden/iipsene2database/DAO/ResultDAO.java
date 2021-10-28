@@ -3,6 +3,7 @@ package nl.hsleiden.iipsene2database.DAO;
 import nl.hsleiden.iipsene2database.DAO.Repository.ResultRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Result;
+import nl.hsleiden.iipsene2database.service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,33 +15,19 @@ public class ResultDAO implements DAO<Result> {
     @Autowired
     private ResultRepository resultRepository;
     @Autowired
-    private AnswerDAO answerDAO;
+    private AnswerService answerService;
 
     @Override
     public List<Result> getAll() {
         List<Result> results = this.resultRepository.findAll();
-        results.forEach(r -> {
-            Answer answer;
-            try {
-                answer = this.answerDAO.getByCurrentContentId(r.getId()).get(0);
-            } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-                answer = new Answer();
-            }
-            r.setAnswer(answer);
-        });
+        results.forEach(r -> r.setAnswer(answerService.getAnswer(r.getId())));
         return results;
     }
 
     @Override
     public Result get(Long id) {
         Result result = this.resultRepository.getById(id);
-        Answer answer;
-        try {
-            answer = this.answerDAO.getByCurrentContentId(result.getId()).get(0);
-        } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-            answer = new Answer();
-        }
-        result.setAnswer(answer);
+        result.setAnswer(answerService.getAnswer(id));
         return result;
     }
 

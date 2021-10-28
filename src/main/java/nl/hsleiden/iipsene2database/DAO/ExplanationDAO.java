@@ -18,30 +18,12 @@ public class ExplanationDAO implements DAO<Explanation> {
 
     @Override
     public List<Explanation> getAll() {
-        List<Explanation> explanations = this.explanationRepository.findAll();
-        explanations.forEach(e -> {
-            Answer answer;
-            try {
-                answer = this.answerDAO.getByCurrentContentId(e.getId()).get(0);
-            } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-                answer = new Answer();
-            }
-            e.setAnswer(answer);
-        });
-        return explanations;
+        return this.explanationRepository.findAll();
     }
 
     @Override
     public Explanation get(Long id) {
-        Explanation explanation = this.explanationRepository.getById(id);
-        Answer answer;
-        try {
-            answer = this.answerDAO.getByCurrentContentId(explanation.getId()).get(0);
-        } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-            answer = new Answer();
-        }
-        explanation.setAnswer(answer);
-        return explanation;
+        return this.explanationRepository.getById(id);
     }
 
     @Override

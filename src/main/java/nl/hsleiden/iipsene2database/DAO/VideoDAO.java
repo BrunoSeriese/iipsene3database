@@ -25,30 +25,12 @@ public class VideoDAO implements DAO<Video> {
 
     @Override
     public List<Video> getAll() {
-        List<Video> videos = this.videoRepository.findAll();
-        videos.forEach(v -> {
-            Answer answer;
-            try {
-                answer = this.answerDAO.getByCurrentContentId(v.getId()).get(0);
-            } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-                answer = new Answer();
-            }
-            v.setAnswer(answer);
-        });
-        return videos;
+        return this.videoRepository.findAll();
     }
 
     @Override
     public Video get(Long id) {
-        Video video = this.videoRepository.getById(id);
-        Answer answer;
-        try {
-            answer = this.answerDAO.getByCurrentContentId(video.getId()).get(0);
-        } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-            answer = new Answer();
-        }
-        video.setAnswer(answer);
-        return video;
+        return this.videoRepository.getById(id);
     }
 
     @Override

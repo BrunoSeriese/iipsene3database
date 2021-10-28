@@ -19,30 +19,12 @@ public class QuestionDAO implements DAO<Question> {
 
     @Override
     public List<Question> getAll() {
-        List<Question> questions = this.questionRepository.findAll();
-        questions.forEach(q -> {
-            List<Answer> answers = new ArrayList<>();
-            try {
-                answers = this.answerDAO.getByCurrentContentId(q.getId());
-            } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-                answers.add(new Answer());
-            }
-            q.setAnswers(answers);
-        });
-        return questions;
+        return this.questionRepository.findAll();
     }
 
     @Override
     public Question get(Long id) {
-        Question question = this.questionRepository.getById(id);
-        List<Answer> answers = new ArrayList<>();
-        try {
-            answers = this.answerDAO.getByCurrentContentId(question.getId());
-        } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
-            answers.add(new Answer());
-        }
-        question.setAnswers(answers);
-        return question;
+        return this.questionRepository.getById(id);
     }
 
     public List<Question> getList(Long listId) {
