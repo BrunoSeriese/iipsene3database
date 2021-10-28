@@ -1,14 +1,11 @@
 package nl.hsleiden.iipsene2database.DAO;
 
 import nl.hsleiden.iipsene2database.DAO.Repository.QuestionRepository;
-import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class QuestionDAO implements DAO<Question> {
@@ -40,9 +37,8 @@ public class QuestionDAO implements DAO<Question> {
         return null;
     }
 
-    @Override
-    public Question update(Long id) {
-        return null;
+    public Question update(Long id, String value) {
+        return this.questionRepository.update(id, value);
     }
 
     @Override

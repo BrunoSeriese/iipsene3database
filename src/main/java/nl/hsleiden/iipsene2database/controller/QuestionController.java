@@ -49,10 +49,10 @@ public class QuestionController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Question> put(@PathVariable("id") Long id){
-        this.questionDAO.update(id);
+    public ResponseEntity<Question> put(@RequestBody Question question){
+        this.questionService.update(question);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

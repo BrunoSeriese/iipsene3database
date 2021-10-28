@@ -1,13 +1,11 @@
 package nl.hsleiden.iipsene2database.DAO;
 
 import nl.hsleiden.iipsene2database.DAO.Repository.ExplanationRepository;
-import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Explanation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class ExplanationDAO implements DAO<Explanation> {
@@ -31,9 +29,8 @@ public class ExplanationDAO implements DAO<Explanation> {
         return this.explanationRepository.save(explanation);
     }
 
-    @Override
-    public Explanation update(Long id) {
-        return null;
+    public Explanation update(Long id, String value) {
+        return this.explanationRepository.update(id, value);
     }
 
     @Override

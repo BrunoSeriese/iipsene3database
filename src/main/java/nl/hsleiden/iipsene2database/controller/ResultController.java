@@ -24,7 +24,7 @@ public class ResultController {
         return new ResponseEntity<>(this.resultService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Result> get(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.resultService.get(id), HttpStatus.OK);
@@ -36,10 +36,10 @@ public class ResultController {
         return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Result> put(@PathVariable("id") Long id){
-        this.resultDAO.update(id);
+    public ResponseEntity<Result> put(@RequestBody Result result){
+        this.resultService.update(result);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

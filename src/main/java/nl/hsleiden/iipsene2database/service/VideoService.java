@@ -27,4 +27,8 @@ public class VideoService {
         video.setAnswer(answerService.getAnswer(id));
         return video;
     }
+
+    public Video update(Video video) {
+        return this.videoDAO.update(video.getId(), video.getValue());
+    }
 }

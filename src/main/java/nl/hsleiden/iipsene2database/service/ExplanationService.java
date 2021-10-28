@@ -28,4 +28,8 @@ public class ExplanationService {
         explanation.setAnswer(answerService.getAnswer(id));
         return explanation;
     }
+
+    public Explanation update(Explanation explanation) {
+        return this.explanationDAO.update(explanation.getId(), explanation.getValue());
+    }
 }

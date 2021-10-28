@@ -27,4 +27,8 @@ public class QuestionService {
         question.setAnswers(answerService.getAnswers(id));
         return question;
     }
+
+    public Question update(Question question) {
+        return this.questionDAO.update(question.getId(), question.getValue());
+    }
 }

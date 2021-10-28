@@ -27,4 +27,8 @@ public class ResultService {
         result.setAnswer(answerService.getAnswer(id));
         return result;
     }
+
+    public Result update(Result result) {
+        return this.resultDAO.update(result.getId(), result.getValue());
+    }
 }

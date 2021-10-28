@@ -36,10 +36,10 @@ public class ExplanationController {
         return new ResponseEntity<>(this.explanationDAO.create(explanation), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Explanation> put(@PathVariable("id") Long id){
-        this.explanationDAO.update(id);
+    public ResponseEntity<Explanation> put(@RequestBody Explanation explanation){
+        this.explanationService.update(explanation);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

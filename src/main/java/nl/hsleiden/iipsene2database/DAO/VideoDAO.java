@@ -1,13 +1,11 @@
 package nl.hsleiden.iipsene2database.DAO;
 
 import nl.hsleiden.iipsene2database.DAO.Repository.VideoRepository;
-import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Video;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Objects;
 
 @Component
 public class VideoDAO implements DAO<Video> {
@@ -15,13 +13,6 @@ public class VideoDAO implements DAO<Video> {
     private VideoRepository videoRepository;
     @Autowired
     private AnswerDAO answerDAO;
-
-    @Autowired
-    public VideoDAO(VideoRepository videoRepository,
-                    AnswerDAO answerDAO) {
-        this.videoRepository = videoRepository;
-        this.answerDAO = answerDAO;
-    }
 
     @Override
     public List<Video> getAll() {
@@ -38,9 +29,8 @@ public class VideoDAO implements DAO<Video> {
         return this.videoRepository.save(video);
     }
 
-    @Override
-    public Video update(Long id) {
-        return null;
+    public Video update(Long id, String value) {
+        return this.videoRepository.update(id, value);
     }
 
     @Override

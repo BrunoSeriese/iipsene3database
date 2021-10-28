@@ -36,9 +36,8 @@ public class AnswerDAO implements DAO<Answer> {
         return this.answerRepository.save(answer);
     }
 
-    @Override
-    public Answer update(Long id) {
-        return null;
+    public Answer update(Long id, String value, Long currentContentId, Long nextContentId) {
+        return this.answerRepository.update(id, value, nextContentId, currentContentId);
     }
 
     @Override

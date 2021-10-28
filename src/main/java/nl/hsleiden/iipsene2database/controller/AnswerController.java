@@ -3,6 +3,7 @@ package nl.hsleiden.iipsene2database.controller;
 import nl.hsleiden.iipsene2database.DAO.AnswerDAO;
 import nl.hsleiden.iipsene2database.model.Answer;
 import nl.hsleiden.iipsene2database.model.Content;
+import nl.hsleiden.iipsene2database.service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,8 @@ import java.util.List;
 public class AnswerController {
     @Autowired
     private AnswerDAO answerDAO;
+    @Autowired
+    private AnswerService answerService;
 
     @GetMapping
     @ResponseBody
@@ -46,10 +49,10 @@ public class AnswerController {
         return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Answer> put(@PathVariable("id") Long id){
-        this.answerDAO.update(id);
+    public ResponseEntity<Answer> put(@RequestBody Answer answer){
+        this.answerService.update(answer);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

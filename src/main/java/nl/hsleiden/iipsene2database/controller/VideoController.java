@@ -37,10 +37,10 @@ public class VideoController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Video> put(@PathVariable("id") Long id){
-        this.videoDAO.update(id);
+    public ResponseEntity<Video> put(@RequestBody Video video){
+        this.videoService.update(video);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
