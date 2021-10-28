@@ -10,12 +10,8 @@ import java.util.List;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
-    private final AnswerRepository answerRepository;
-
     @Autowired
-    public AnswerDAO(AnswerRepository answerRepository) {
-        this.answerRepository = answerRepository;
-    }
+    private AnswerRepository answerRepository;
 
     @Override
     public List<Answer> getAll() {

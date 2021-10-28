@@ -12,12 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/results")
 public class ResultController {
-    private final ResultDAO resultDAO;
-
     @Autowired
-    public ResultController(ResultDAO resultDAO){
-        this.resultDAO = resultDAO;
-    }
+    private ResultDAO resultDAO;
 
     @GetMapping
     @ResponseBody

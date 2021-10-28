@@ -13,12 +13,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/answers")
 public class AnswerController {
-    private final AnswerDAO answerDAO;
-
     @Autowired
-    public AnswerController(AnswerDAO answerDAO) {
-        this.answerDAO = answerDAO;
-    }
+    private AnswerDAO answerDAO;
 
     @GetMapping
     @ResponseBody

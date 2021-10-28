@@ -11,8 +11,10 @@ import java.util.Objects;
 
 @Component
 public class VideoDAO implements DAO<Video> {
-    private final VideoRepository videoRepository;
-    private final AnswerDAO answerDAO;
+    @Autowired
+    private VideoRepository videoRepository;
+    @Autowired
+    private AnswerDAO answerDAO;
 
     @Autowired
     public VideoDAO(VideoRepository videoRepository,

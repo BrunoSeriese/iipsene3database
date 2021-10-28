@@ -12,12 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/explanations")
 public class ExplanationController {
-    private final ExplanationDAO explanationDAO;
-
     @Autowired
-    public ExplanationController(ExplanationDAO explanationDAO) {
-        this.explanationDAO = explanationDAO;
-    }
+    private ExplanationDAO explanationDAO;
 
     @GetMapping
     @ResponseBody

@@ -12,12 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/videos")
 public class VideoController {
-    private final VideoDAO videoDAO;
-
     @Autowired
-    public VideoController(VideoDAO videoDAO) {
-        this.videoDAO = videoDAO;
-    }
+    private VideoDAO videoDAO;
 
     @GetMapping
     @ResponseBody

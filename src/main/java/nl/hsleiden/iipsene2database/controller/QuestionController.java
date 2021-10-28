@@ -12,12 +12,8 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/questions")
 public class QuestionController {
-    private final QuestionDAO questionDAO;
-
     @Autowired
-    public QuestionController(QuestionDAO questionDAO) {
-        this.questionDAO = questionDAO;
-    }
+    private QuestionDAO questionDAO;
 
     @GetMapping
     @ResponseBody

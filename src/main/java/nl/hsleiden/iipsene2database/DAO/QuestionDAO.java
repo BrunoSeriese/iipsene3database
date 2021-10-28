@@ -12,15 +12,10 @@ import java.util.Objects;
 
 @Component
 public class QuestionDAO implements DAO<Question> {
-    private final QuestionRepository questionRepository;
-    private final AnswerDAO answerDAO;
-
     @Autowired
-    public QuestionDAO(QuestionRepository questionRepository,
-                       AnswerDAO answerDAO) {
-        this.questionRepository = questionRepository;
-        this.answerDAO = answerDAO;
-    }
+    private QuestionRepository questionRepository;
+    @Autowired
+    private AnswerDAO answerDAO;
 
     @Override
     public List<Question> getAll() {

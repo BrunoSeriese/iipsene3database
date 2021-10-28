@@ -11,15 +11,10 @@ import java.util.Objects;
 
 @Component
 public class ResultDAO implements DAO<Result> {
-    private final ResultRepository resultRepository;
-    private final AnswerDAO answerDAO;
-
     @Autowired
-    public ResultDAO(ResultRepository resultRepository,
-                     AnswerDAO answerDAO) {
-        this.resultRepository = resultRepository;
-        this.answerDAO = answerDAO;
-    }
+    private ResultRepository resultRepository;
+    @Autowired
+    private AnswerDAO answerDAO;
 
     @Override
     public List<Result> getAll() {
