@@ -13,7 +13,13 @@ public class AnswerService {
     private AnswerDAO answerDAO;
 
     public Answer getAnswer(Long id) {
-        return this.answerDAO.getByCurrentContentId(id).get(0);
+        Answer answer;
+        try {
+            answer = this.answerDAO.getByCurrentContentId(id).get(0);
+        } catch(IndexOutOfBoundsException indexOutOfBoundsException) {
+            answer = new Answer();
+        }
+        return answer;
     }
 
     public List<Answer> getAnswers(Long id) {
