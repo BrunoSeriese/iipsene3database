@@ -13,9 +13,8 @@ public class Question implements Content {
     @GeneratedValue
     private Long id;
     private String value;
-    private String type;
     @Transient
-    private Answer[] answers;
+    private List<Answer> answers;
 
     public Question(){
     }
@@ -30,21 +29,12 @@ public class Question implements Content {
         return value;
     }
 
-    @Override
-    public String getType() {
-        return type;
-    }
-
-    public Answer[] getAnswers() {
+    public List<Answer> getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Answer[] answers) {
-        this.answers = answers;
-    }
-
     public void setAnswers(List<Answer> answers) {
-        this.answers = answers.toArray(new Answer[0]);
+        this.answers = answers;
     }
 
 

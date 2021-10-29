@@ -24,17 +24,9 @@ public class QuestionDAO implements DAO<Question> {
         return this.questionRepository.getById(id);
     }
 
-    public List<Question> getList(Long listId) {
-        return null;
-    }
-
     @Override
     public Question create(Question question) {
         return this.questionRepository.save(question);
-    }
-
-    public List<Question> createList(Long listId) {
-        return null;
     }
 
     public Question update(Long id, String value) {
@@ -44,12 +36,5 @@ public class QuestionDAO implements DAO<Question> {
     @Override
     public void delete(Question question) {
         this.questionRepository.delete(question);
-    }
-
-    public void deleteList(List<Question> questions) {
-    }
-
-    public List<Question> patchList(Long listId) {
-        return null;
     }
 }

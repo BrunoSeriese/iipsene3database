@@ -14,7 +14,6 @@ public class Video implements Content {
     @Id
     private Long id;
     private String value;
-    private String type;
     @Transient
     private Answer answer;
 
@@ -30,11 +29,6 @@ public class Video implements Content {
     @Override
     public String getValue() {
         return value;
-    }
-
-    @Override
-    public String getType() {
-        return type;
     }
 
     public Answer getAnswer() {
