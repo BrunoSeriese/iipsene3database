@@ -6,8 +6,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EnableJpaRepositories(basePackages = {"nl.hsleiden.iipsene2database.DAO.Repository"})
-/*@ComponentScan(basePackages = {"nl.hsleiden.iipsene2database.DAO"})
-@EntityScan(basePackages = {"nl.hsleiden.iipsene2database.model"})*/
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class })
 public class MainApplication {
 

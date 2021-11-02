@@ -19,7 +19,7 @@ public class QuestionController {
         this.questionDAO = questionDAO;
     }
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Question>> getAll(){
         return new ResponseEntity<>(this.questionDAO.getAll(), HttpStatus.OK);
