@@ -12,19 +12,11 @@ public class Answer  {
     @GeneratedValue
     private Long id;
     private String value;
-    private int currentContentId;
-    private int nextContentId;
+    private Long currentContentId;
+    private Long nextContentId;
 
     public Answer(){
 
-    }
-
-    public Answer(String value,
-                  int currentContentId,
-                  int nextContentId) {
-        this.value = value;
-        this.currentContentId = currentContentId;
-        this.nextContentId = nextContentId;
     }
 
     public Long getId() {
@@ -35,11 +27,11 @@ public class Answer  {
         return this.value;
     }
 
-    public int getCurrentContentId() {
+    public Long getCurrentContentId() {
         return this.currentContentId;
     }
 
-    public int getNextContentId() {
+    public Long getNextContentId() {
         return this.nextContentId;
     }
 }

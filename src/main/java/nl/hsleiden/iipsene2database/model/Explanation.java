@@ -12,18 +12,11 @@ public class Explanation implements Content {
     @GeneratedValue
     private Long id;
     private String value;
-    private String type;
     @Transient
     private Answer answer;
 
     public Explanation(){
 
-    }
-
-    public Explanation(String value,
-                       String type) {
-        this.value = value;
-        this.type = type;
     }
 
     @Override
@@ -34,11 +27,6 @@ public class Explanation implements Content {
     @Override
     public String getValue() {
         return value;
-    }
-
-    @Override
-    public String getType() {
-        return type;
     }
 
     public Answer getAnswer() {

@@ -2,7 +2,6 @@ package nl.hsleiden.iipsene2database.DAO;
 
 import nl.hsleiden.iipsene2database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene2database.model.Answer;
-import nl.hsleiden.iipsene2database.model.Content;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +9,8 @@ import java.util.List;
 
 @Component
 public class AnswerDAO implements DAO<Answer> {
-    private final AnswerRepository answerRepository;
-
     @Autowired
-    public AnswerDAO(AnswerRepository answerRepository) {
-        this.answerRepository = answerRepository;
-    }
+    private AnswerRepository answerRepository;
 
     @Override
     public List<Answer> getAll() {
@@ -28,13 +23,7 @@ public class AnswerDAO implements DAO<Answer> {
     }
 
     public List<Answer> getByCurrentContentId(Long currentContentId) {
-        List<Answer> answers = this.answerRepository.findAll();
-        answers.removeIf(a -> a.getCurrentContentId() != currentContentId);
-        return answers;
-    }
-
-    public Content getNextContentById(Long id) {
-        return null;
+        return this.answerRepository.getByCurrentContentId(currentContentId);
     }
 
     @Override
@@ -42,18 +31,12 @@ public class AnswerDAO implements DAO<Answer> {
         return this.answerRepository.save(answer);
     }
 
-    @Override
-    public Answer update(Long id) {
-        return null;
+    public Answer update(Long id, String value, Long currentContentId, Long nextContentId) {
+        return this.answerRepository.update(id, value, nextContentId, currentContentId);
     }
 
     @Override
     public void delete(Answer answer) {
         this.answerRepository.delete(answer);
     }
-
-    public List<Answer> patchList(Long contentId) {
-        return null;
-    }
-
 }

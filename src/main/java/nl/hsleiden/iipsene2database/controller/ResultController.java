@@ -2,6 +2,7 @@ package nl.hsleiden.iipsene2database.controller;
 
 import nl.hsleiden.iipsene2database.DAO.ResultDAO;
 import nl.hsleiden.iipsene2database.model.Result;
+import nl.hsleiden.iipsene2database.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,39 +13,37 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/results")
 public class ResultController {
-    private final ResultDAO resultDAO;
-
     @Autowired
-    public ResultController(ResultDAO resultDAO){
-        this.resultDAO = resultDAO;
-    }
+    private ResultDAO resultDAO;
+    @Autowired
+    private ResultService resultService;
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Result>> getAll(){
-        return new ResponseEntity<>(this.resultDAO.getAll(), HttpStatus.OK);
+        return new ResponseEntity<>(this.resultService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping("/{id}")
     @ResponseBody
     public ResponseEntity<Result> get(@PathVariable("id") Long id){
-        return new ResponseEntity<>(this.resultDAO.get(id), HttpStatus.OK);
+        return new ResponseEntity<>(this.resultService.get(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Result> post(@RequestBody Result result){
         return new ResponseEntity<>(this.resultDAO.create(result), HttpStatus.OK);
     }
 
-    @PutMapping(value = "{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Result> put(@PathVariable("id") Long id){
-        this.resultDAO.update(id);
+    public ResponseEntity<Result> put(@RequestBody Result result){
+        this.resultService.update(result);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Result> delete(@RequestBody Result result){
         this.resultDAO.delete(result);

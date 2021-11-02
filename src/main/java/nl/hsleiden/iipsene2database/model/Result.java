@@ -12,19 +12,11 @@ public class Result implements Content {
     @GeneratedValue
     private Long id;
     private String value;
-    private String type;
     @Transient
     private Answer answer;
 
     public Result(){
 
-    }
-
-    public Result(String value,
-                  String type) {
-
-        this.value = value;
-        this.type = type;
     }
 
     @Override
@@ -35,11 +27,6 @@ public class Result implements Content {
     @Override
     public String getValue() {
         return value;
-    }
-
-    @Override
-    public String getType() {
-        return type;
     }
 
     public Answer getAnswer() {

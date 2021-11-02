@@ -2,7 +2,7 @@ package nl.hsleiden.iipsene2database.controller;
 
 import nl.hsleiden.iipsene2database.DAO.AnswerDAO;
 import nl.hsleiden.iipsene2database.model.Answer;
-import nl.hsleiden.iipsene2database.model.Content;
+import nl.hsleiden.iipsene2database.service.AnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +13,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/answers")
 public class AnswerController {
-    private final AnswerDAO answerDAO;
-
     @Autowired
-    public AnswerController(AnswerDAO answerDAO) {
-        this.answerDAO = answerDAO;
-    }
+    private AnswerDAO answerDAO;
+    @Autowired
+    private AnswerService answerService;
 
-    @GetMapping(value = "")
+    @GetMapping
     @ResponseBody
     public ResponseEntity<List<Answer>> getAll(){
         return new ResponseEntity<>(this.answerDAO.getAll(), HttpStatus.OK);
@@ -38,36 +36,23 @@ public class AnswerController {
         return new ResponseEntity<>(this.answerDAO.getByCurrentContentId(currentContentId), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/{id}/nextContent")
-    @ResponseBody
-    public ResponseEntity<Content> getNextContentById(@PathVariable("id") Long id){
-        return new ResponseEntity<>(this.answerDAO.getNextContentById(id), HttpStatus.OK);
-    }
-
-    @PostMapping(value = "")
+    @PostMapping
     @ResponseBody
     public ResponseEntity<Answer> post(@RequestBody Answer answer){
         return new ResponseEntity<>(this.answerDAO.create(answer), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping
     @ResponseBody
-    public ResponseEntity<Answer> put(@PathVariable("id") Long id){
-        this.answerDAO.update(id);
+    public ResponseEntity<Answer> put(@RequestBody Answer answer){
+        this.answerService.update(answer);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "")
+    @DeleteMapping
     @ResponseBody
     public ResponseEntity<Answer> delete(@RequestBody Answer answer){
         this.answerDAO.delete(answer);
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
-
-    @PatchMapping(value = "/contentId/{contentId}")
-    @ResponseBody
-    public ResponseEntity<List<Answer>> patchList(@PathVariable("contentId") Long contentId){
-        this.answerDAO.patchList(contentId);
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
