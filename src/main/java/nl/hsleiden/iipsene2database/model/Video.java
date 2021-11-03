@@ -14,6 +14,7 @@ public class Video implements Content {
     @Id
     private Long id;
     private String value;
+    private final String type = "VIDEO";
     @Transient
     private Answer answer;
 

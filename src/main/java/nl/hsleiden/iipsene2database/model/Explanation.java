@@ -9,9 +9,9 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Explanation implements Content {
     @Id
-    @GeneratedValue
     private Long id;
     private String value;
+    private final String type = "EXPLANATION";
     @Transient
     private Answer answer;
 

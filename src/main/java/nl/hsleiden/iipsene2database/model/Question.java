@@ -10,9 +10,9 @@ import java.util.List;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Question implements Content {
     @Id
-    @GeneratedValue
     private Long id;
     private String value;
+    private final String type = "QUESTION";
     @Transient
     private List<Answer> answers;
 
