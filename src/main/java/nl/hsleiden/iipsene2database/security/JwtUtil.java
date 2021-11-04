@@ -13,6 +13,10 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
+/**
+ * A utility the Creates, Validates and Extracts tokens or pieces of tokens.
+ * @author Vincent Severin, Hicham El Faquir, Ryan Bhola, Bruno Seriese
+ */
 @Service
 public class JwtUtil {
     private final long expirationTime = TimeUnit.HOURS.toMillis(10);

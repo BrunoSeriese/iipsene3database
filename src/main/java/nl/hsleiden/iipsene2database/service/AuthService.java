@@ -7,11 +7,18 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service for the AuthController to check the validity of the login details.
+ */
 @Service
 public class AuthService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    /**
+     * Checks the validity of the login details
+     * @author Vincent Severin
+     */
     public void authenticate(String email, String password) throws Exception {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));

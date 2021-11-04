@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+/**
+ * The Video entity as a Class.
+ * @author Vincent Severin
+ */
 @Entity
 @Table(name = "content")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

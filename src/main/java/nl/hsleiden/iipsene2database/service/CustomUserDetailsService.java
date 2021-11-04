@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Handles getting the User
+ */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
     @Autowired

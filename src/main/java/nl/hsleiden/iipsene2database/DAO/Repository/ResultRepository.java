@@ -8,13 +8,29 @@ import org.springframework.lang.NonNull;
 
 import java.util.List;
 
+/**
+ * Handles the queries of the content with type RESULT
+ * @author Vincent Severin
+ */
 public interface ResultRepository extends JpaRepository<Result, Long> {
+    /**
+     * Gets all the Results
+     * @return All Results
+     * @author Vincent Severin
+     */
     @Override
     @NonNull
     @Query(value = "SELECT * FROM content WHERE type = 'RESULT'",
             nativeQuery = true)
     List<Result> findAll();
 
+    /**
+     * Updates a Result
+     * @param id The if of the Result
+     * @param value The value of the Result
+     * @return The updated Result
+     * @author Vincent Severin
+     */
     @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = RESULT",
             nativeQuery = true)
     Result update(@Param("id") Long id,

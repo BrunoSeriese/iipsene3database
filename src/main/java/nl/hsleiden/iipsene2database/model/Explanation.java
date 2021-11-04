@@ -4,6 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+/**
+ * The Explanation entity as a Class.
+ * @author Vincent Severin
+ */
 @Entity
 @Table(name = "content")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
