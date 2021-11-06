@@ -2,9 +2,11 @@ package nl.hsleiden.iipsene2database.DAO.Repository;
 
 import nl.hsleiden.iipsene2database.model.Answer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -32,6 +34,8 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
      * @return The answer that is updated
      * @author Vincent Severin
      */
+    @Transactional
+    @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE answer SET value = :value, current_content_id = :currentContentId, next_content_id = :nextContentId WHERE id = :id",
             nativeQuery = true)
     Answer update(@Param("id") Long id,
