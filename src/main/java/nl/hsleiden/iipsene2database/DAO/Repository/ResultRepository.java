@@ -30,13 +30,12 @@ public interface ResultRepository extends JpaRepository<Result, Long> {
      * Updates a Result
      * @param id The if of the Result
      * @param value The value of the Result
-     * @return The updated Result
      * @author Vincent Severin
      */
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = 'RESULT'",
             nativeQuery = true)
-    Result update(@Param("id") Long id,
+    void update(@Param("id") Long id,
                   @Param("value") String value);
 }

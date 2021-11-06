@@ -30,7 +30,7 @@ public class AnswerService {
         return this.answerDAO.getByCurrentContentId(id);
     }
 
-    public Answer update(Answer answer) {
-        return this.answerDAO.update(answer.getId(), answer.getValue(), answer.getCurrentContentId(), answer.getNextContentId());
+    public void update(Answer answer) {
+        this.answerDAO.update(answer.getId(), answer.getValue(), answer.getCurrentContentId(), answer.getNextContentId());
     }
 }

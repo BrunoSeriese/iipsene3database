@@ -33,7 +33,7 @@ public class ExplanationService {
         return explanation;
     }
 
-    public Explanation update(Explanation explanation) {
-        return this.explanationDAO.update(explanation.getId(), explanation.getValue());
+    public void update(Explanation explanation) {
+        this.explanationDAO.update(explanation.getId(), explanation.getValue());
     }
 }

@@ -32,7 +32,7 @@ public class ResultService {
         return result;
     }
 
-    public Result update(Result result) {
-        return this.resultDAO.update(result.getId(), result.getValue());
+    public void update(Result result) {
+        this.resultDAO.update(result.getId(), result.getValue());
     }
 }

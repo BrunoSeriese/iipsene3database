@@ -32,7 +32,7 @@ public class QuestionService {
         return question;
     }
 
-    public Question update(Question question) {
-        return this.questionDAO.update(question.getId(), question.getValue());
+    public void update(Question question) {
+        this.questionDAO.update(question.getId(), question.getValue());
     }
 }

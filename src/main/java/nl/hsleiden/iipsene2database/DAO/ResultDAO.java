@@ -55,11 +55,10 @@ public class ResultDAO implements DAO<Result> {
      * Updates a Result in the Database.
      * @param id The id of the Result
      * @param value The value of the Result
-     * @return The Result that has been updated
      * @author Vincent Severin
      */
-    public Result update(Long id, String value) {
-        return this.resultRepository.update(id, value);
+    public void update(Long id, String value) {
+        this.resultRepository.update(id, value);
     }
 
     /**

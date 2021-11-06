@@ -30,13 +30,12 @@ public interface VideoRepository extends JpaRepository<Video, Long> {
      * Updates the Video.
      * @param id The id of the Video
      * @param value The value of the Video
-     * @return The updated Video
      * @author Vincent Severin
      */
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = 'VIDEO'",
             nativeQuery = true)
-    Video update(@Param("id") Long id,
+    void update(@Param("id") Long id,
                  @Param("value") String value);
 }

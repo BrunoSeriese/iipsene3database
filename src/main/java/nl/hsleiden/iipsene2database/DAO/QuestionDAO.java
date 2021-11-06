@@ -54,11 +54,10 @@ public class QuestionDAO implements DAO<Question> {
      * Updates a Question in the Database.
      * @param id The id of the Question
      * @param value The value of the Question
-     * @return The Question that has been updated
      * @author Vincent Severin
      */
-    public Question update(Long id, String value) {
-        return this.questionRepository.update(id, value);
+    public void update(Long id, String value) {
+        this.questionRepository.update(id, value);
     }
 
     /**

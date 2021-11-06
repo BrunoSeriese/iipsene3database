@@ -30,13 +30,12 @@ public interface ExplanationRepository extends JpaRepository<Explanation, Long> 
      * Updates an Explanation.
      * @param id The id of the Explanation
      * @param value The value of the Explanation
-     * @return The updated Explanation
      * @author Vincent Severin
      */
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = 'EXPLANATION'",
             nativeQuery = true)
-    Explanation update(@Param("id") Long id,
+    void update(@Param("id") Long id,
                        @Param("value") String value);
 }

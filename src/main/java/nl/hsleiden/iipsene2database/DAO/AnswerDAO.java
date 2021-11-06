@@ -64,11 +64,10 @@ public class AnswerDAO implements DAO<Answer> {
      * @param value The value of the Answer
      * @param currentContentId The currentContentId of the Answer
      * @param nextContentId The nextContentId of the Answer
-     * @return The updated Answer
      * @author Vincent Severin
      */
-    public Answer update(Long id, String value, Long currentContentId, Long nextContentId) {
-        return this.answerRepository.update(id, value, nextContentId, currentContentId);
+    public void update(Long id, String value, Long currentContentId, Long nextContentId) {
+        this.answerRepository.update(id, value, nextContentId, currentContentId);
     }
 
     /**

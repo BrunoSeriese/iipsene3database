@@ -31,14 +31,13 @@ public interface AnswerRepository extends JpaRepository<Answer, Long> {
      * @param value The value of the Answer
      * @param currentContentId The id of the content it belongs to
      * @param nextContentId The id of the content it refers to
-     * @return The answer that is updated
      * @author Vincent Severin
      */
     @Transactional
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE answer SET value = :value, current_content_id = :currentContentId, next_content_id = :nextContentId WHERE id = :id",
             nativeQuery = true)
-    Answer update(@Param("id") Long id,
+    void update(@Param("id") Long id,
                   @Param("value") String value,
                   @Param("currentContentId") Long currentContentId,
                   @Param("nextContentId") Long nextContentId);
