@@ -31,7 +31,7 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
      * @return The updated Question
      * @author Vincent Severin
      */
-    @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = QUESTION",
+    @Query(value = "UPDATE content SET value = :value WHERE id = :id AND type = 'QUESTION'",
             nativeQuery = true)
     Question update(@Param("id") Long id,
                     @Param("value") String value);
