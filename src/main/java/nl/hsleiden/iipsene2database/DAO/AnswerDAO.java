@@ -67,7 +67,7 @@ public class AnswerDAO implements DAO<Answer> {
      * @author Vincent Severin
      */
     public void update(Long id, String value, Long currentContentId, Long nextContentId) {
-        this.answerRepository.update(id, value, nextContentId, currentContentId);
+        this.answerRepository.update(id, value, currentContentId, nextContentId);
     }
 
     /**
