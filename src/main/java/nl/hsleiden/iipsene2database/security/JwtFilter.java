@@ -16,6 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Filter for the JWT is receives when a request is made.
+ * @author Vincent Severin, Hicham El Faquir, Ryan Bhola, Bruno Seriese
+ */
 @Component
 public class JwtFilter extends OncePerRequestFilter {
 
@@ -27,6 +31,10 @@ public class JwtFilter extends OncePerRequestFilter {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
+    /**
+     * Filters out the email of the user out of the token
+     * @author Vincent Severin, Hicham El Faquir, Ryan Bhola, Bruno Seriese
+     */
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     @NonNull HttpServletResponse httpServletResponse,

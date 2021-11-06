@@ -5,11 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * The Answer entity as a Class.
+ * @author Vincent Severin
+ */
 @Entity
 @Table(name = "answer")
 public class Answer  {
     @Id
-    @GeneratedValue
     private Long id;
     private String value;
     private Long currentContentId;

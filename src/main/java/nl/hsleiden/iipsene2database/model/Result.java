@@ -4,14 +4,18 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
+/**
+ * The Result entity as a Class.
+ * @author Vincent Severin
+ */
 @Entity
 @Table(name = "content")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Result implements Content {
     @Id
-    @GeneratedValue
     private Long id;
     private String value;
+    private final String type = "RESULT";
     @Transient
     private Answer answer;
 
