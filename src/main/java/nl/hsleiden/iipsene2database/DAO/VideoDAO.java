@@ -54,11 +54,10 @@ public class VideoDAO implements DAO<Video> {
      * Updates a Video in the Database
      * @param id The id of the Video
      * @param value The value of the Video
-     * @return The Video that has been updated
      * @author Vincent Severin
      */
-    public Video update(Long id, String value) {
-        return this.videoRepository.update(id, value);
+    public void update(Long id, String value) {
+        this.videoRepository.update(id, value);
     }
 
     /**

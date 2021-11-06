@@ -32,7 +32,7 @@ public class VideoService {
         return video;
     }
 
-    public Video update(Video video) {
-        return this.videoDAO.update(video.getId(), video.getValue());
+    public void update(Video video) {
+        this.videoDAO.update(video.getId(), video.getValue());
     }
 }

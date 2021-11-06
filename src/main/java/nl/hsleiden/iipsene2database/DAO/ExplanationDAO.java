@@ -54,11 +54,10 @@ public class ExplanationDAO implements DAO<Explanation> {
      * Updates an Explanation in the Database.
      * @param id The id of the Explanation
      * @param value The value of the Explanation
-     * @return The Explanation that has been updated
      * @author Vincent Severin
      */
-    public Explanation update(Long id, String value) {
-        return this.explanationRepository.update(id, value);
+    public void update(Long id, String value) {
+        this.explanationRepository.update(id, value);
     }
 
     /**
