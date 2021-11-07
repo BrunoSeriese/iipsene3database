@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Handles getting the User
+ * @author Vincent Severin
  */
 @Service
 public class CustomUserDetailsService implements UserDetailsService {

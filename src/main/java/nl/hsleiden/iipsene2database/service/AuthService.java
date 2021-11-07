@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Service for the AuthController to check the validity of the login details.
+ * @author Vincent Severin
  */
 @Service
 public class AuthService {

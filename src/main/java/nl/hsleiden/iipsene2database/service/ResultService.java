@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Handles the communication between some controller/dao methods.
- * @author Vincent Seviner
+ * @author Vincent Severin
  */
 @Service
 public class ResultService {
