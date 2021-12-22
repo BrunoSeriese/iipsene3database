@@ -8,6 +8,7 @@ import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactor
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 
 @Configuration
 public class ServerConfig {
@@ -20,7 +21,7 @@ public class ServerConfig {
                 var securityConstraint = new SecurityConstraint();
                 securityConstraint.setUserConstraint("CONFIDENTIAL");
                 var collection = new SecurityCollection();
-                collection.addPattern("/*");
+                collection.addPattern("");
                 securityConstraint.addCollection(collection);
                 context.addConstraint(securityConstraint);
             }
