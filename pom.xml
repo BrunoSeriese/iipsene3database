@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>nl.hsleiden</groupId>
-    <artifactId>iipsene2database</artifactId>
+    <artifactId>iipsene3database</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>iipsene2database</name>
-    <description>API for iipsene2application</description>
+    <description>API for iipsene3application</description>
     <packaging>jar</packaging>
     <properties>
         <java.version>11</java.version>
@@ -90,7 +90,7 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                nl.hsleiden.iipsene2database.MainApplication
+                                nl.hsleiden.iipsene3database.MainApplication
                             </mainClass>
                         </manifest>
                     </archive>
