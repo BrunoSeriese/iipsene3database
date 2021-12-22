@@ -1,2 +1,8 @@
 server:
-  port: 8080
+  port: 8443
+  ssl:
+    key-store: classpath:springboot.p12
+    key-store-password: password
+    key-store-type: pkcs12
+    key-alias: springboot
+    key-password: password
