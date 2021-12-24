@@ -1,5 +1,6 @@
 package nl.hsleiden.iipsene3database.DAO;
 
+import nl.hsleiden.iipsene3database.model.Content;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -18,8 +19,8 @@ public class ContentDAO {
     private JdbcTemplate jdbcTemplate;
 
     /**
-     * Gets all the ContentNodes in the Database.
-     * @return All ContentNodes
+     * Gets all the Contents in the Database.
+     * @return List of ContentMaps
      * @author Vincent Severin
      */
     public List<Map<String, Object>> getAll() {
@@ -53,5 +54,35 @@ public class ContentDAO {
             map.put("answerValues", resultSet.getArray("answer_values").getArray());
             return map;
         });
+    }
+
+    /**
+     * Creates a new Content in the Database.
+     * @param content A Content
+     * @param parentContentId The id of the parent content
+     * @author Vincent Severin
+     */
+    public void create(Content content, Long parentContentId) {
+        //TODO
+        // Create and query a script to create a content.
+    }
+
+    /**
+     * Updates a Content in the Database.
+     * @param content A Content
+     * @author Vincent Severin
+     */
+    public void update(Content content) {
+        //TODO
+        // Create and query a script to update a content.
+    }
+
+    /**
+     * Deletes a Content from the Database.
+     * @param content A Content
+     */
+    public void delete(Content content) {
+        //TODO
+        // Create and query a script to delete a content.
     }
 }
