@@ -1,6 +1,7 @@
 package nl.hsleiden.iipsene3database.DAO;
 
 import nl.hsleiden.iipsene3database.model.Content;
+import nl.hsleiden.iipsene3database.service.SQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,8 @@ import java.util.Map;
 public class ContentDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
+    @Autowired
+    private SQLService sqlService;
 
     /**
      * Gets all the Contents in the Database.
@@ -24,26 +27,7 @@ public class ContentDAO {
      * @author Vincent Severin
      */
     public List<Map<String, Object>> getAll() {
-        String sql = "WITH RECURSIVE tree AS (\n" +
-                "\t(\n" +
-                "\t\tSELECT 1 AS depth, ARRAY[id] AS path, id, parent_node, content_id\n" +
-                "\t\tFROM node\n" +
-                "\t\tWHERE parent_node IS NULL\n" +
-                "\t)\n" +
-                "\tUNION ALL\n" +
-                "\t(\n" +
-                "\t\tSELECT tree.depth + 1, tree.path || node.id, node.id, node.parent_node, node.content_id\n" +
-                "\t\tFROM tree\n" +
-                "\t\tINNER JOIN node ON tree.id = node.parent_node\n" +
-                "\t)\n" +
-                ")\n" +
-                "SELECT content.id AS content_id, content.value AS content_value, content.type AS content_type, array_agg(answer.id) AS answer_ids, array_agg(answer.value) AS answer_values\n" +
-                "FROM tree\n" +
-                "JOIN path ON tree.id = path.node_id\n" +
-                "JOIN content ON tree.content_id = content.id\n" +
-                "JOIN answer ON answer_id = answer.id\n" +
-                "GROUP BY content.id, content.value, content.type, tree.path\n" +
-                "ORDER BY path;";
+        String sql = sqlService.getSQLQuery("getAll");
 
         return jdbcTemplate.query(sql, (resultSet, rowNumber) -> {
             Map<String, Object> map = new HashMap<>();
@@ -65,6 +49,8 @@ public class ContentDAO {
     public void create(Content content, Long parentContentId) {
         //TODO
         // Create and query a script to create a content.
+        String sql = sqlService.getSQLQuery("");
+        jdbcTemplate.execute(sql);
     }
 
     /**
@@ -75,6 +61,8 @@ public class ContentDAO {
     public void update(Content content) {
         //TODO
         // Create and query a script to update a content.
+        String sql = sqlService.getSQLQuery("");
+        jdbcTemplate.execute(sql);
     }
 
     /**
@@ -84,5 +72,7 @@ public class ContentDAO {
     public void delete(Content content) {
         //TODO
         // Create and query a script to delete a content.
+        String sql = sqlService.getSQLQuery("");
+        jdbcTemplate.execute(sql);
     }
 }
