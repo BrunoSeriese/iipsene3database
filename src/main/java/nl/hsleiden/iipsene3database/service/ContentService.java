@@ -1,5 +1,6 @@
 package nl.hsleiden.iipsene3database.service;
 
+import nl.hsleiden.iipsene3database.DAO.AnswerDAO;
 import nl.hsleiden.iipsene3database.DAO.ContentDAO;
 import nl.hsleiden.iipsene3database.model.Answer;
 import nl.hsleiden.iipsene3database.model.Content;
@@ -8,6 +9,7 @@ import nl.hsleiden.iipsene3database.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import java.util.Map;
 public class ContentService {
     @Autowired
     private ContentDAO contentDAO;
+    private AnswerDAO answerDao;
 
     public List<Content> getAll() {
         List<Map<String, Object>> contentMaps = this.contentDAO.getAll();
@@ -27,7 +30,14 @@ public class ContentService {
     }
 
     public Content create(Content content, Long parentContentId) {
-        this.contentDAO.create(content, new Node(), parentContentId);
+        Node currentNode = this.contentDAO.create(content, new Node(), parentContentId);
+        List<Answer> answers =  content.getAnswers();
+        for (Answer answer :answers
+             ) {
+            this.answerDao.create(answer,currentNode.getId());
+
+            
+        }
         return content;
     }
 

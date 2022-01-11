@@ -53,10 +53,10 @@ public class ContentDAO {
      * @param parentContentId The id of the parent content
      * @author Vincent Severin
      */
-    public Content create(Content content, Node node, Long parentContentId) {
+    public Node create(Content content, Node node, Long parentContentId) {
         this.contentRepository.create(content.getId(), content.getValue(), content.getType());
         this.nodeRepository.create(node.getId(), content.getId(), parentContentId);
-        return content;
+        return node;
     }
 
     /**
