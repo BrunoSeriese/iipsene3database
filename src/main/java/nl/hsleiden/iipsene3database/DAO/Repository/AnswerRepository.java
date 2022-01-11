@@ -8,12 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 public interface AnswerRepository extends JpaRepository<Answer, Integer> {
     @Modifying
-    @Query(value =  "INSERT INTO Answer VALUES(:id, :value)\n;" +
-                    "INSERT INTO Path VALUES(:nodeId, :id);",
+    @Query(value = "INSERT INTO Path VALUES(:nodeId, :answerId);",
             nativeQuery = true)
-    void create(@Param("id") Integer id,
-                @Param("value") String value,
-                @Param("nodeId") Long nodeId);
+    void createPath(@Param("nodeId") Long nodeId,
+                    @Param("answerId") Integer answerId);
+
     @Modifying
     @Query(value = "UPDATE Answer SET( id = :id, value = :value) WHERE id = :id;",
             nativeQuery = true)

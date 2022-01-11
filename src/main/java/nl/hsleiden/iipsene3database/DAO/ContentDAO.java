@@ -52,9 +52,9 @@ public class ContentDAO {
      * @param content A Content
      * @author Vincent Severin
      */
-    public Node create(Content content, Node node) {
+    public Node create(Content content, Long parentNodeId) {
         this.contentRepository.save(content);
-        //this.contentRepository.create(content.getId(), content.getValue(), content.getType());
+        Node node = new Node(content.getId(), parentNodeId);
         this.nodeRepository.save(node);
         return node;
     }

@@ -31,10 +31,10 @@ public class ContentService {
     }
 
     public Content create(Content content, Long parentContentId) {
-        Node currentNode = this.contentDAO.create(content, new Node());
+        Node node = this.contentDAO.create(content, parentContentId);
         List<Answer> answers =  content.getAnswers();
         for (Answer answer : answers) {
-            this.answerDAO.create(answer,currentNode.getId());
+            this.answerDAO.create(answer, node.getId());
         }
         return content;
     }

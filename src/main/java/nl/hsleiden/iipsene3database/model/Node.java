@@ -9,14 +9,14 @@ public class Node {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long contentId;
-    private Long parentNodeId;
+    private Long parentNode;
 
     public Node() {
     }
 
     public Node(Long contentId, Long parentNodeId) {
         this.contentId = contentId;
-        this.parentNodeId = parentNodeId;
+        this.parentNode = parentNodeId;
     }
 
     public Long getId() {
@@ -27,7 +27,7 @@ public class Node {
         return contentId;
     }
 
-    public Long getParentNodeId() {
-        return parentNodeId;
+    public Long getParentNode() {
+        return parentNode;
     }
 }
