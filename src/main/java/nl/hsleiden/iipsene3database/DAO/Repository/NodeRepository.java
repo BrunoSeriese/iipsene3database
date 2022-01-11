@@ -12,7 +12,7 @@ public interface NodeRepository extends JpaRepository<Node, Long> {
                 @Param("content_id") long content_id,
                 @Param("parent_node") long parent_node);
 
-    @Query(value = "UPDATE Node SET(id = :id, content_id = :content_id, parent_node = :parent_node);",
+    @Query(value = "UPDATE Node SET(id = :id, content_id = :content_id, parent_node = :parent_node) WHERE id = :id;",
     nativeQuery = true)
     void update(@Param("id") long id,
                 @Param("content_id") long content_id,
