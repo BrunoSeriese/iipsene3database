@@ -22,6 +22,7 @@ import java.util.Map;
 public class ContentService {
     @Autowired
     private ContentDAO contentDAO;
+    @Autowired
     private AnswerDAO answerDao;
 
     public List<Content> getAll() {
@@ -32,11 +33,8 @@ public class ContentService {
     public Content create(Content content, Long parentContentId) {
         Node currentNode = this.contentDAO.create(content, new Node(), parentContentId);
         List<Answer> answers =  content.getAnswers();
-        for (Answer answer :answers
-             ) {
+        for (Answer answer : answers) {
             this.answerDao.create(answer,currentNode.getId());
-
-            
         }
         return content;
     }

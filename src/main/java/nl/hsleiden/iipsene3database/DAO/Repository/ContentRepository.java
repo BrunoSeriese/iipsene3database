@@ -9,7 +9,7 @@ import org.springframework.security.core.parameters.P;
 
 public interface ContentRepository extends JpaRepository<Content, Long> {
     @Modifying
-    @Query(value = "INSERT INTO Content VALUES(:contentId, :contentValue, :contentType);",
+    @Query(value = "INSERT INTO Content VALUES(:id, :value, :type);",
             nativeQuery = true)
     void create(@Param("id") Long id,
                 @Param("value") String value,
