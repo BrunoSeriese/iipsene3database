@@ -3,7 +3,9 @@ package nl.hsleiden.iipsene3database.DAO;
 import nl.hsleiden.iipsene3database.DAO.Repository.AnswerRepository;
 import nl.hsleiden.iipsene3database.model.Answer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AnswerDAO {
     @Autowired
     private AnswerRepository answerRepository;

@@ -23,7 +23,7 @@ public class ContentService {
     @Autowired
     private ContentDAO contentDAO;
     @Autowired
-    private AnswerDAO answerDao;
+    private AnswerDAO answerDAO;
 
     public List<Content> getAll() {
         List<Map<String, Object>> contentMaps = this.contentDAO.getAll();
@@ -34,7 +34,7 @@ public class ContentService {
         Node currentNode = this.contentDAO.create(content, new Node(), parentContentId);
         List<Answer> answers =  content.getAnswers();
         for (Answer answer : answers) {
-            this.answerDao.create(answer,currentNode.getId());
+            this.answerDAO.create(answer,currentNode.getId());
         }
         return content;
     }
