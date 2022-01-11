@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 public interface NodeRepository extends JpaRepository<Node, Long> {
-    @Query(value =  "",
+    @Query(value =  "INSERT INTO Node VALUES(:id,:content_id,:parent_node)",
             nativeQuery = true)
     void create();
 }
