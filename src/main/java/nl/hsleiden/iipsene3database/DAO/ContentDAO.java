@@ -50,12 +50,12 @@ public class ContentDAO {
     /**
      * Creates a new Content in the Database.
      * @param content A Content
-     * @param parentContentId The id of the parent content
      * @author Vincent Severin
      */
-    public Node create(Content content, Node node, Long parentContentId) {
-        this.contentRepository.create(content.getId(), content.getValue(), content.getType());
-        this.nodeRepository.create(node.getId(), content.getId(), parentContentId);
+    public Node create(Content content, Node node) {
+        this.contentRepository.save(content);
+        //this.contentRepository.create(content.getId(), content.getValue(), content.getType());
+        this.nodeRepository.save(node);
         return node;
     }
 

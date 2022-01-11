@@ -41,7 +41,6 @@ public class ContentController {
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public Content post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
-        System.out.println(parentNodeId);
         return this.contentService.create(content, parentNodeId);
     }
 

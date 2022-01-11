@@ -8,20 +8,26 @@ public class Node {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long contentId;
     private Long parentNodeId;
 
     public Node() {
+    }
+
+    public Node(Long contentId, Long parentNodeId) {
+        this.contentId = contentId;
+        this.parentNodeId = parentNodeId;
     }
 
     public Long getId() {
         return id;
     }
 
-    public Long getParentNodeId() {
-        return parentNodeId;
+    public Long getContentId() {
+        return contentId;
     }
 
-    public void setParentNodeId(Long parentNodeId) {
-        this.parentNodeId = parentNodeId;
+    public Long getParentNodeId() {
+        return parentNodeId;
     }
 }

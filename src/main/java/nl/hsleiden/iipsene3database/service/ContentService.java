@@ -31,7 +31,7 @@ public class ContentService {
     }
 
     public Content create(Content content, Long parentContentId) {
-        Node currentNode = this.contentDAO.create(content, new Node(), parentContentId);
+        Node currentNode = this.contentDAO.create(content, new Node());
         List<Answer> answers =  content.getAnswers();
         for (Answer answer : answers) {
             this.answerDAO.create(answer,currentNode.getId());
@@ -72,7 +72,7 @@ public class ContentService {
         Long contentId = (Long) contentMap.get("contentId");
         String contentValue = (String) contentMap.get("contentValue");
         String contentType = (String) contentMap.get("contentType");
-        Long[] answerIds = (Long[]) contentMap.get("answerIds");
+        Integer[] answerIds = (Integer[]) contentMap.get("answerIds");
         String[] answerValues = (String[]) contentMap.get("answerValues");
         List<Answer> answer = getAnswers(answerIds, answerValues);
         return new Content(contentId, contentValue, contentType, answer);
@@ -85,7 +85,7 @@ public class ContentService {
      * @return A list of Answers
      * @author Vincent Severin
      */
-    private List<Answer> getAnswers(Long[] ids, String[] values) {
+    private List<Answer> getAnswers(Integer[] ids, String[] values) {
         List<Answer> answers = new ArrayList<>();
         for(int i = 0; i < ids.length; i++) {
             Answer answer = new Answer(ids[i], values[i]);
