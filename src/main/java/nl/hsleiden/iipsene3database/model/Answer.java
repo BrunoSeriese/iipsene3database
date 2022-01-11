@@ -7,19 +7,19 @@ import javax.persistence.*;
 public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String value;
 
     public Answer() {
     }
 
-    public Answer(Integer id,
+    public Answer(Long id,
                   String value) {
         this.id = id;
         this.value = value;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

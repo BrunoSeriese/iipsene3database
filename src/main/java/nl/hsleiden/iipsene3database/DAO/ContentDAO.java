@@ -1,6 +1,9 @@
 package nl.hsleiden.iipsene3database.DAO;
 
+import nl.hsleiden.iipsene3database.DAO.Repository.ContentRepository;
+import nl.hsleiden.iipsene3database.DAO.Repository.NodeRepository;
 import nl.hsleiden.iipsene3database.model.Content;
+import nl.hsleiden.iipsene3database.model.Node;
 import nl.hsleiden.iipsene3database.service.SQLService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -20,6 +23,10 @@ public class ContentDAO {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private SQLService sqlService;
+    @Autowired
+    private ContentRepository contentRepository;
+    @Autowired
+    private NodeRepository nodeRepository;
 
     /**
      * Gets all the Contents in the Database.
@@ -46,11 +53,10 @@ public class ContentDAO {
      * @param parentContentId The id of the parent content
      * @author Vincent Severin
      */
-    public void create(Content content, Long parentContentId) {
-        //TODO
-        // Create and query a script to create a content.
-        String sql = sqlService.getSQLQuery("");
-        jdbcTemplate.execute(sql);
+    public Content create(Content content, Node node, Long parentContentId) {
+        this.contentRepository.create(content.getId(), content.getValue(), content.getType());
+        this.nodeRepository.create(node.getId(), content.getId(), parentContentId);
+        return content;
     }
 
     /**
@@ -58,21 +64,15 @@ public class ContentDAO {
      * @param content A Content
      * @author Vincent Severin
      */
-    public void update(Content content, Long parentContentId) {
-        //TODO
-        // Create and query a script to update a content.
-        String sql = sqlService.getSQLQuery("");
-        jdbcTemplate.execute(sql);
+    public void update(Content content) {
+        this.contentRepository.update(content.getId(), content.getValue(), content.getType());
     }
 
     /**
      * Deletes a Content from the Database.
      * @param content A Content
      */
-    public void delete(Content content, Long parentContentId) {
-        //TODO
-        // Create and query a script to delete a content.
-        String sql = sqlService.getSQLQuery("");
-        jdbcTemplate.execute(sql);
+    public void delete(Content content) {
+        this.contentRepository.delete(content.getId());
     }
 }

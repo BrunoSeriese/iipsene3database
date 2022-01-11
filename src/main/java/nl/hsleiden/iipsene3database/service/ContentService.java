@@ -4,6 +4,7 @@ import nl.hsleiden.iipsene3database.DAO.ContentDAO;
 import nl.hsleiden.iipsene3database.model.Answer;
 import nl.hsleiden.iipsene3database.model.Content;
 
+import nl.hsleiden.iipsene3database.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,16 +27,16 @@ public class ContentService {
     }
 
     public Content create(Content content, Long parentContentId) {
-        this.contentDAO.create(content, parentContentId);
+        this.contentDAO.create(content, new Node(), parentContentId);
         return content;
     }
 
-    public void update(Content content, Long parentContentId) {
-        this.contentDAO.update(content, parentContentId);
+    public void update(Content content) {
+        this.contentDAO.update(content);
     }
 
-    public void delete(Content content, Long parentContentId) {
-        this.contentDAO.delete(content, parentContentId);
+    public void delete(Content content) {
+        this.contentDAO.delete(content);
     }
 
     /**
@@ -63,7 +64,7 @@ public class ContentService {
         Long contentId = (Long) contentMap.get("contentId");
         String contentValue = (String) contentMap.get("contentValue");
         String contentType = (String) contentMap.get("contentType");
-        Integer[] answerIds = (Integer[]) contentMap.get("answerIds");
+        Long[] answerIds = (Long[]) contentMap.get("answerIds");
         String[] answerValues = (String[]) contentMap.get("answerValues");
         List<Answer> answer = getAnswers(answerIds, answerValues);
         return new Content(contentId, contentValue, contentType, answer);
@@ -76,7 +77,7 @@ public class ContentService {
      * @return A list of Answers
      * @author Vincent Severin
      */
-    private List<Answer> getAnswers(Integer[] ids, String[] values) {
+    private List<Answer> getAnswers(Long[] ids, String[] values) {
         List<Answer> answers = new ArrayList<>();
         for(int i = 0; i < ids.length; i++) {
             Answer answer = new Answer(ids[i], values[i]);

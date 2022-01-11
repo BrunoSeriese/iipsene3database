@@ -50,11 +50,11 @@ public class ContentController {
      * @param content a Content
      * @author Vincent Severin
      */
-    @PutMapping("/{parentNodeId}")
+    @PutMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void put(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
-        this.contentService.update(content, parentNodeId);
+    public void put(@RequestBody Content content){
+        this.contentService.update(content);
     }
 
     /**
@@ -62,10 +62,10 @@ public class ContentController {
      * @param content a Content
      * @author Vincent Severin
      */
-    @DeleteMapping("/{parentNodeId}")
+    @DeleteMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void delete(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
-        this.contentService.delete(content, parentNodeId);
+    public void delete(@RequestBody Content content){
+        this.contentService.delete(content);
     }
 }
