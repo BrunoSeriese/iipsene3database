@@ -33,15 +33,16 @@ public class ContentController {
     /**
      * Creates a new Content in the Database.
      * @param content a Content
-     * @param parentContentId The id of the parent content
+     * @param parentNodeId The id of the parent node
      * @return The Content created
      * @author Vincent Severin
      */
-    @PostMapping
+    @PostMapping("/{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Content post(@RequestBody Content content, Long parentContentId){
-        return this.contentService.create(content, parentContentId);
+    public Content post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
+        System.out.println(parentNodeId);
+        return this.contentService.create(content, parentNodeId);
     }
 
     /**
@@ -49,11 +50,11 @@ public class ContentController {
      * @param content a Content
      * @author Vincent Severin
      */
-    @PutMapping
+    @PutMapping("/{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void put(@RequestBody Content content){
-        this.contentService.update(content);
+    public void put(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
+        this.contentService.update(content, parentNodeId);
     }
 
     /**
@@ -61,10 +62,10 @@ public class ContentController {
      * @param content a Content
      * @author Vincent Severin
      */
-    @DeleteMapping
+    @DeleteMapping("/{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void delete(@RequestBody Content content){
-        this.contentService.delete(content);
+    public void delete(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
+        this.contentService.delete(content, parentNodeId);
     }
 }

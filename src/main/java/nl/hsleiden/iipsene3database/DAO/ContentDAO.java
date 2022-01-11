@@ -58,7 +58,7 @@ public class ContentDAO {
      * @param content A Content
      * @author Vincent Severin
      */
-    public void update(Content content) {
+    public void update(Content content, Long parentContentId) {
         //TODO
         // Create and query a script to update a content.
         String sql = sqlService.getSQLQuery("");
@@ -69,7 +69,7 @@ public class ContentDAO {
      * Deletes a Content from the Database.
      * @param content A Content
      */
-    public void delete(Content content) {
+    public void delete(Content content, Long parentContentId) {
         //TODO
         // Create and query a script to delete a content.
         String sql = sqlService.getSQLQuery("");

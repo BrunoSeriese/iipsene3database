@@ -26,18 +26,16 @@ public class ContentService {
     }
 
     public Content create(Content content, Long parentContentId) {
-        //TODO:
-        // Need to get the id of parent content from the client to work properly, I think.
         this.contentDAO.create(content, parentContentId);
         return content;
     }
 
-    public void update(Content content) {
-        this.contentDAO.update(content);
+    public void update(Content content, Long parentContentId) {
+        this.contentDAO.update(content, parentContentId);
     }
 
-    public void delete(Content content) {
-        this.contentDAO.delete(content);
+    public void delete(Content content, Long parentContentId) {
+        this.contentDAO.delete(content, parentContentId);
     }
 
     /**
