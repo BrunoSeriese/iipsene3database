@@ -14,6 +14,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/contents")
+@CrossOrigin
 public class ContentController {
     @Autowired
     private ContentService contentService;
