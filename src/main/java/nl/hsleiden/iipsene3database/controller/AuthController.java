@@ -16,6 +16,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping(value = "/auth")
+@CrossOrigin
 public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;

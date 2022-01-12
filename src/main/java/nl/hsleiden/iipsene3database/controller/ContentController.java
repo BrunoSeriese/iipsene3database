@@ -52,6 +52,7 @@ public class ContentController {
     @PutMapping("{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
+    @CrossOrigin
     public void put(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
         this.contentService.update(content, parentNodeId);
     }
