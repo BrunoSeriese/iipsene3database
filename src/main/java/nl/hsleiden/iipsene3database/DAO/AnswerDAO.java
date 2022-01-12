@@ -20,6 +20,6 @@ public class AnswerDAO {
     }
 
     public void update(Answer answer) {
-        this.answerRepository.update(answer.getId(), answer.getValue());
+        this.answerRepository.save(answer);
     }
 }

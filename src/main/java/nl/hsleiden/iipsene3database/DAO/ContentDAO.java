@@ -64,8 +64,9 @@ public class ContentDAO {
      * @param content A Content
      * @author Vincent Severin
      */
-    public void update(Content content) {
-        this.contentRepository.update(content.getId(), content.getValue(), content.getType());
+    public Node update(Content content, Long parentNodeId) {
+        this.contentRepository.save(content);
+        return this.nodeRepository.get(content.getId(), parentNodeId);
     }
 
     /**

@@ -39,8 +39,15 @@ public class ContentService {
         return content;
     }
 
-    public void update(Content content) {
-        this.contentDAO.update(content);
+    public void update(Content content, Long parentNodeId) {
+        Node node = this.contentDAO.update(content, parentNodeId);
+        List<Answer> answers = content.getAnswers();
+        for (Answer answer : answers) {
+            if(answer.getId() == null) {
+                this.answerDAO.create(answer, node.getId());
+            }
+            this.answerDAO.update(answer);
+        }
     }
 
     public void delete(Content content) {

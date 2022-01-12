@@ -49,11 +49,11 @@ public class ContentController {
      * @param content a Content
      * @author Vincent Severin
      */
-    @PutMapping
+    @PutMapping("{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
-    public void put(@RequestBody Content content){
-        this.contentService.update(content);
+    public void put(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
+        this.contentService.update(content, parentNodeId);
     }
 
     /**
