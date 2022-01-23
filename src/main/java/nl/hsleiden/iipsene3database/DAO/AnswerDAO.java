@@ -22,4 +22,8 @@ public class AnswerDAO {
     public void update(Answer answer) {
         this.answerRepository.save(answer);
     }
+
+    public void delete() {
+        this.answerRepository.deleteAll();
+    }
 }

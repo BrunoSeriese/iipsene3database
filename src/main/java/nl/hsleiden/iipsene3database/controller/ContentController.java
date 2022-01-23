@@ -69,4 +69,11 @@ public class ContentController {
     public void delete(@RequestBody Content content){
         this.contentService.delete(content);
     }
+
+    @DeleteMapping("/all")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void deleteAll() {
+        this.contentService.delete();
+    }
 }

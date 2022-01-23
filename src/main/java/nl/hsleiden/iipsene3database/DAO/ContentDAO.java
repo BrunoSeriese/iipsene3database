@@ -76,4 +76,8 @@ public class ContentDAO {
     public void delete(Content content) {
         this.contentRepository.delete(content.getId());
     }
+
+    public void delete() {
+        this.contentRepository.deleteAll();
+    }
 }

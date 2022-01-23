@@ -54,6 +54,11 @@ public class ContentService {
         this.contentDAO.delete(content);
     }
 
+    public void delete() {
+        this.contentDAO.delete();
+        this.answerDAO.delete();
+    }
+
     /**
      * Loops through the list of contentMaps.
      * @param contentMaps A list containing information of a content
