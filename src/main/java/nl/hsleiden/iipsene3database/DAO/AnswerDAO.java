@@ -7,6 +7,8 @@ import nl.hsleiden.iipsene3database.model.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
+
 @Component
 public class AnswerDAO {
     @Autowired
@@ -14,8 +16,9 @@ public class AnswerDAO {
     @Autowired
     private PathRepository pathRepository;
 
+    @Transactional
     public void create(Answer answer, Long nodeId) {
-        this.answerRepository.save(answer);
+        this.answerRepository.saveAndFlush(answer);
         this.pathRepository.save(new Path(nodeId, answer.getId()));
     }
 

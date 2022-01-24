@@ -5,10 +5,13 @@ import nl.hsleiden.iipsene3database.DAO.Repository.NodeRepository;
 import nl.hsleiden.iipsene3database.model.Content;
 import nl.hsleiden.iipsene3database.model.Node;
 import nl.hsleiden.iipsene3database.service.SQLService;
+import org.hibernate.annotations.Synchronize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.util.concurrent.MonoToListenableFutureAdapter;
 
 import javax.transaction.Transactional;
 import java.util.HashMap;
@@ -54,14 +57,10 @@ public class ContentDAO {
      * @param content A Content
      * @author Vincent Severin
      */
+    @Transactional
     public Node create(Content content, Long parentNodeId) {
-        this.contentRepository.save(content);
+        this.contentRepository.saveAndFlush(content);
         Node node = new Node(content.getId(), content.getId(), parentNodeId);
-        System.out.println("---");
-        System.out.println(node.getId());
-        System.out.println(node.getContentId());
-        System.out.println(node.getParentNode());
-        System.out.println("---");
         this.nodeRepository.save(node);
         return node;
     }
