@@ -36,21 +36,23 @@ public class ContentController {
      * Creates a new Content in the Database.
      * @param content a Content
      * @param parentNodeId The id of the parent node
-     * @return The Content created
      * @author Vincent Severin
      */
     @PostMapping("/{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public Content post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
-        return this.contentService.create(content, parentNodeId);
+    public void post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
+        this.contentService.create(content, parentNodeId);
     }
 
     @PostMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public void post(@RequestBody ContentRequest contentRequest) {
-        this.contentService.create(contentRequest.getContent(), contentRequest.getParentNodeId());
+    public void post(@RequestBody ContentRequest[] contentRequests) {
+        for(ContentRequest contentRequest : contentRequests) {
+            Content content = new Content(contentRequest.getId(), contentRequest.getValue(), contentRequest.getType(), contentRequest.getAnswers());
+            this.contentService.create(content, contentRequest.getParentNodeId());
+        }
     }
 
     /**

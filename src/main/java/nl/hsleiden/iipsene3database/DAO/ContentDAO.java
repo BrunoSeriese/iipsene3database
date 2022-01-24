@@ -6,9 +6,11 @@ import nl.hsleiden.iipsene3database.model.Content;
 import nl.hsleiden.iipsene3database.model.Node;
 import nl.hsleiden.iipsene3database.service.SQLService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +57,11 @@ public class ContentDAO {
     public Node create(Content content, Long parentNodeId) {
         this.contentRepository.save(content);
         Node node = new Node(content.getId(), content.getId(), parentNodeId);
+        System.out.println("---");
         System.out.println(node.getId());
+        System.out.println(node.getContentId());
+        System.out.println(node.getParentNode());
+        System.out.println("---");
         this.nodeRepository.save(node);
         return node;
     }
