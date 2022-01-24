@@ -1,6 +1,7 @@
 package nl.hsleiden.iipsene3database.controller;
 
 import nl.hsleiden.iipsene3database.model.Content;
+import nl.hsleiden.iipsene3database.model.ContentRequest;
 import nl.hsleiden.iipsene3database.service.ContentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,6 +44,13 @@ public class ContentController {
     @ResponseStatus(HttpStatus.CREATED)
     public Content post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
         return this.contentService.create(content, parentNodeId);
+    }
+
+    @PostMapping
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    public void post(@RequestBody ContentRequest contentRequest) {
+        this.contentService.create(contentRequest.getContent(), contentRequest.getParentNodeId());
     }
 
     /**

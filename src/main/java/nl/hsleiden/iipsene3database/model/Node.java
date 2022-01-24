@@ -6,7 +6,6 @@ import javax.persistence.*;
 @Table(name = "node")
 public class Node {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long contentId;
     private Long parentNode;
@@ -14,7 +13,8 @@ public class Node {
     public Node() {
     }
 
-    public Node(Long contentId, Long parentNodeId) {
+    public Node(Long id, Long contentId, Long parentNodeId) {
+        this.id = id;
         this.contentId = contentId;
         this.parentNode = parentNodeId;
     }

@@ -8,7 +8,6 @@ import java.util.List;
 @Table(name = "content")
 public class Content {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String value;
     private String type;

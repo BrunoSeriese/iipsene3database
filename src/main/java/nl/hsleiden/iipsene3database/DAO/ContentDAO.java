@@ -54,7 +54,8 @@ public class ContentDAO {
      */
     public Node create(Content content, Long parentNodeId) {
         this.contentRepository.save(content);
-        Node node = new Node(content.getId(), parentNodeId);
+        Node node = new Node(content.getId(), content.getId(), parentNodeId);
+        System.out.println(node.getId());
         this.nodeRepository.save(node);
         return node;
     }
