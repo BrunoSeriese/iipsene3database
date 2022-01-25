@@ -58,10 +58,11 @@ public class ContentDAO {
      * @author Vincent Severin
      */
     @Transactional
-    public void create(Content content, Long parentNodeId) {
+    public Node create(Content content, Long parentNodeId) {
         this.contentRepository.saveAndFlush(content);
         Node node = new Node(content.getId(), content.getId(), parentNodeId);
         this.nodeRepository.save(node);
+        return node;
     }
 
     /**
