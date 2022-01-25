@@ -9,6 +9,7 @@ import nl.hsleiden.iipsene3database.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +65,7 @@ public class ContentService {
      * @return A list of Content
      * @author Vincent Severin
      */
+    @Transactional
     private List<Content> getContentsFromResultSets(List<Map<String, Object>> contentMaps) {
         List<Content> contents = new ArrayList<>();
         for(Map<String, Object> contentMap : contentMaps) {
