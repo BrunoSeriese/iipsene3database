@@ -33,10 +33,13 @@ public class ContentService {
 
     @Transactional
     public void create(Content content, Long parentContentId) {
-        Node node = this.contentDAO.create(content, parentContentId);
-        List<Answer> answers =  content.getAnswers();
-        for (Answer answer : answers) {
-            this.answerDAO.create(answer, node.getId());
+        this.contentDAO.create(content, parentContentId);
+    }
+
+    @Transactional
+    public void createAnswers(Content content) {
+        for(Answer answer : content.getAnswers()) {
+            this.answerDAO.create(answer, content.getId());
         }
     }
 

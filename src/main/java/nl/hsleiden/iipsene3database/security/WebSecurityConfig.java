@@ -62,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * Encoder used to encode the passoword with BCrypt
+     * Encoder used to encode the password with BCrypt
      * @return The BCryptPasswordEncoder
      * @author Vincent Severin, Hicham El Faquir, Ryan Bhola, Bruno Seriese
      */
