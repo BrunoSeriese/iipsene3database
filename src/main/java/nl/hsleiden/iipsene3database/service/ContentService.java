@@ -9,6 +9,7 @@ import nl.hsleiden.iipsene3database.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +31,7 @@ public class ContentService {
         return getContentsFromResultSets(contentMaps);
     }
 
+    @Transactional
     public void create(Content content, Long parentContentId) {
         Node node = this.contentDAO.create(content, parentContentId);
         List<Answer> answers =  content.getAnswers();
