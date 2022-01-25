@@ -19,7 +19,8 @@ public class AnswerDAO {
     @Transactional
     public void create(Answer answer, Long nodeId) {
         this.answerRepository.saveAndFlush(answer);
-        this.pathRepository.save(new Path(nodeId, answer.getId()));
+        Path path = new Path(nodeId, answer.getId());
+        this.pathRepository.save(path);
     }
 
     public void update(Answer answer) {

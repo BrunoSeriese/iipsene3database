@@ -1,5 +1,6 @@
 package nl.hsleiden.iipsene3database.controller;
 
+import nl.hsleiden.iipsene3database.model.Answer;
 import nl.hsleiden.iipsene3database.model.Content;
 import nl.hsleiden.iipsene3database.model.ContentRequest;
 import nl.hsleiden.iipsene3database.service.ContentService;
@@ -34,24 +35,25 @@ public class ContentController {
 
     /**
      * Creates a new Content in the Database.
-     * @param content a Content
-     * @param parentNodeId The id of the parent node
+     * @param contentRequests a Content and parentNodeId in a wrapper
      * @author Vincent Severin
      */
-    @PostMapping("/{parentNodeId}")
-    @ResponseBody
-    @ResponseStatus(HttpStatus.CREATED)
-    public void post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
-        this.contentService.create(content, parentNodeId);
-    }
-
     @PostMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public void post(@RequestBody ContentRequest[] contentRequests) {
+    public void post(@RequestBody List<ContentRequest> contentRequests) {
         for(ContentRequest contentRequest : contentRequests) {
             Content content = new Content(contentRequest.getId(), contentRequest.getValue(), contentRequest.getType(), contentRequest.getAnswers());
             this.contentService.create(content, contentRequest.getParentNodeId());
+        }
+    }
+
+    @PostMapping("/answers")
+    @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
+    public void postAnswers(@RequestBody List<Content> contents) {
+        for(Content content : contents) {
+            this.contentService.createAnswers(content);
         }
     }
 
