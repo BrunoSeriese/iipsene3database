@@ -5,10 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "path")
 public class Path {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private Long nodeId;
+    @Id
     private Integer answerId;
 
     public Path() {
@@ -18,10 +16,6 @@ public class Path {
     public Path(Long nodeId, Integer answerId) {
         this.nodeId = nodeId;
         this.answerId = answerId;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public Long getNodeId() {
