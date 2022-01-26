@@ -25,4 +25,12 @@ public class Answer {
     public String getValue() {
         return value;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 }
