@@ -1,5 +1,7 @@
 package nl.hsleiden.iipsene3database.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import nl.hsleiden.iipsene3database.model.AuthRequest;
 import nl.hsleiden.iipsene3database.security.JwtUtil;
 import nl.hsleiden.iipsene3database.service.AuthService;
@@ -17,6 +19,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping(value = "/auth")
 @CrossOrigin
+@Api(value = "/auth")
 public class AuthController {
     @Autowired
     private JwtUtil jwtUtil;
@@ -33,6 +36,7 @@ public class AuthController {
      */
     @PostMapping("/login")
     @ResponseBody
+    @ApiOperation(value = "{id}")
     public ResponseEntity<String> login(@Valid @RequestBody AuthRequest authRequest) throws Exception {
         authService.authenticate(authRequest.getEmail(), authRequest.getPassword());
         return new ResponseEntity<>(jwtUtil.generateToken(authRequest.getEmail()), HttpStatus.OK);

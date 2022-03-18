@@ -1,5 +1,7 @@
 package nl.hsleiden.iipsene3database.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import nl.hsleiden.iipsene3database.model.Content;
 import nl.hsleiden.iipsene3database.model.ContentRequest;
 import nl.hsleiden.iipsene3database.service.ContentService;
@@ -16,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/contents")
 @CrossOrigin
+@Api(value = "/contents")
 public class ContentController {
     @Autowired
     private ContentService contentService;
@@ -28,6 +31,7 @@ public class ContentController {
     @GetMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "{status}")
     public List<Content> getAll(){
         return this.contentService.getAll();
     }
@@ -41,6 +45,7 @@ public class ContentController {
     @PostMapping("/{parentNodeId}")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "{parentNodeId}")
     public void post(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
         this.contentService.create(content, parentNodeId);
     }
@@ -48,6 +53,7 @@ public class ContentController {
     @PostMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "{content}")
     public void post(@RequestBody ContentRequest[] contentRequests) {
         for(ContentRequest contentRequest : contentRequests) {
             Content content = new Content(contentRequest.getId(), contentRequest.getValue(), contentRequest.getType(), contentRequest.getAnswers());
@@ -64,6 +70,7 @@ public class ContentController {
     @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @CrossOrigin
+    @ApiOperation(value = "{parentNodeId}")
     public void put(@RequestBody Content content, @PathVariable("parentNodeId") Long parentNodeId){
         this.contentService.update(content, parentNodeId);
     }
@@ -76,6 +83,7 @@ public class ContentController {
     @DeleteMapping
     @ResponseBody
     @ResponseStatus(HttpStatus.ACCEPTED)
+    @ApiOperation(value = "{deleted content}")
     public void delete(@RequestBody Content content){
         this.contentService.delete(content);
     }
@@ -83,6 +91,7 @@ public class ContentController {
     @DeleteMapping("/all")
     @ResponseBody
     @ResponseStatus(HttpStatus.ACCEPTED)
+    @ApiOperation(value = "{remove all}")
     public void deleteAll() {
         this.contentService.delete();
     }
